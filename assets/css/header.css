@@ -1,0 +1,239 @@
+/* header css start */
+.header {
+    padding-top: 10px;
+    background: var(--white);
+    box-shadow: 0 2px 4px #f2f2f2;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: max-content minmax(320px, 520px) max-content;
+    row-gap: 10px;
+    column-gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    width: 90px;
+}
+
+.navbar-search {
+    justify-self: center;
+    width: min(520px, 100%);
+    max-width: 520px;
+}
+
+.search-open {
+    min-height: 38px;
+    box-shadow: none;
+    background: 0 0;
+    border: 0;
+    border-radius: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 2px rgba(33, 25, 19, 0.078);
+    width: 100%;
+    border-radius: 8px;
+    gap: 8px;
+}
+
+.search-open .icon {
+    display: flex;
+}
+
+.search-open .icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.search-open .text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: capitalize;
+}
+
+.search-open .search-roller {
+    overflow: hidden;
+    height: 18px;
+    display: inline-flex;
+}
+
+.search-open .search-roller-track {
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+}
+
+.search-open .search-roller-track span {
+    display: flex;
+    align-items: center;
+    height: 18px;
+    white-space: nowrap;
+}
+
+.navbar-icons {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 36px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.navbar-icon:hover {
+    background: var(--item-bg);
+}
+
+.navbar-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.navbar-icon svg path {
+    stroke: var(--black);
+}
+
+.navbar-link-area {
+    width: 100%;
+    grid-column: span 3;
+    position: relative;
+}
+
+.navbar-link-area::before {
+    position: absolute;
+    z-index: 1;
+    content: "";
+    width: 1000%;
+    height: 1px;
+    background: var(--border-color2);
+    top: 0;
+    left: -250%;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-link-btn {
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: capitalize;
+    padding: 6px 14px;
+    position: relative;
+    transition: all ease .3s;
+    cursor: pointer;
+}
+
+.navbar-link-btn:after {
+    content: "";
+    background: var(--bg-mark);
+    opacity: 0;
+    height: 3px;
+    transition: all ease .3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.navbar-link:hover .navbar-link-btn {
+    background: var(--item-bg);
+}
+
+.navbar-link:hover .navbar-link-btn:after {
+    opacity: 1;
+}
+
+.megamenu {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 60dvh;
+    height: fit-content;
+    background: var(--white);
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all ease .3s;
+    box-shadow: 0 2px 4px #f2f2f2;
+    padding: 24px 14px;
+    overflow-y: auto;
+}
+
+.navbar-link:hover .megamenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.megamenu-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: space-between;
+}
+
+.megamenu-item {
+    min-width: 200px;
+}
+
+.megamenu-item-title {
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.megamenu-item ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.megamenu-item ul li a {
+    color: var(--paragraph-text-color);
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: capitalize;
+    letter-spacing: 0.3px;
+    position: relative;
+}
+
+.megamenu-item ul li a::before {
+    position: absolute;
+    z-index: 1;
+    content: "";
+    bottom: 0;
+    left: auto;
+    right: 0;
+    width: 0;
+    height: 1px;
+    background: var(--paragraph-text-color);
+    transition: all ease .3s;
+}
+
+.megamenu-item ul li a:hover::before {
+    width: 100%;
+    left: 0;
+    right: auto;
+}
+/* header css end */
