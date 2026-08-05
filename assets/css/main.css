@@ -57,6 +57,7 @@
     --border-color2: #efeeea;
     --bg-mark: #d55a3c;
     --item-bg: #fef2f0;
+    --item-bg2: #f5f1f0;
 
     /* font family */
     --heading-font: "Outfit", serif;
@@ -83,6 +84,10 @@ body {
     -moz-transition: all ease 2s;
     -ms-transition: all ease 2s;
     -o-transition: all ease 2s;
+}
+
+body.active{
+    overflow: hidden;
 }
 
 ul,
@@ -227,6 +232,8 @@ button {
     width: 100%;
     transition: all ease .3s;
     border: 1px solid var(--btn-bg);
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .btn:hover {

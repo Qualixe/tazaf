@@ -1,5 +1,5 @@
 "use strict";
-
+// navbar search roller js start ----
 document.querySelectorAll(".search-roller").forEach((roller) => {
   const track = roller.querySelector(".search-roller-track");
   const items = [...track.children];
@@ -39,7 +39,9 @@ document.querySelectorAll(".search-roller").forEach((roller) => {
   setInterval(next, 2000);
 });
 
-// navbar js start----
+// navbar search roller js end --
+
+// navbar sticky search js start----
 let lastScroll = 0;
 
 window.addEventListener("load", handleScroll);
@@ -47,18 +49,55 @@ window.addEventListener("scroll", handleScroll);
 
 function handleScroll() {
   const scrolling = window.scrollY;
-  const navbar = document.querySelector(".navbar");
+  const header = document.querySelector(".header");
   const home_nav_active = document.querySelector(".home-nav-active");
 
   lastScroll = scrolling;
 
-  if ((scrolling > 100) & navbar.classList.contains("home-nav-active")) {
-    home_nav_active.classList.remove("home-nav");
-  } else if ((scrolling < 100) & navbar.classList.contains("home-nav-active")) {
+  if ((scrolling > 80) & header.classList.contains("home-nav-active")) {
     home_nav_active.classList.add("home-nav");
+  } else if ((scrolling < 80) & header.classList.contains("home-nav-active")) {
+    home_nav_active.classList.remove("home-nav");
   }
 }
-// navbar js end----
+// navbar sticky search js end----
+
+// navbar search open js start ---
+document.querySelectorAll(".navbar-search").forEach((search) => {
+  const openBtn = search.querySelector(".search-open");
+  const closeBtns = search.querySelectorAll(
+    ".search-bar-window-cls-btn, .search-bar-close",
+  );
+  const searchWrap = search.querySelector(".search-bar-wrap");
+  const body = document.body;
+
+  // Open Search
+  openBtn?.addEventListener("click", () => {
+    searchWrap.classList.add("active");
+    body.classList.add("active");
+  });
+
+  // Close Search
+  closeBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      searchWrap.classList.remove("active");
+      body.classList.remove("active");
+    });
+  });
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    // Remove active from search wrap
+    document.querySelectorAll(".search-bar-wrap.active").forEach((el) => {
+      el.classList.remove("active");
+    });
+
+    // Remove active from body
+    document.body.classList.remove("active");
+  }
+});
+// navbar search open js end ---
 
 // accordion js start----
 document.addEventListener("DOMContentLoaded", () => {
