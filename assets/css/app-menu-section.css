@@ -1,18 +1,18 @@
 /* app-menu-section css start */
 .app-menu-section {
     position: fixed;
-    z-index: 99;
+    z-index: 9999;
     left: 50%;
     bottom: 10px;
     transform: translateX(-50%);
-    background: var(--body-color);
-    padding: 13.5px 16px;
-    border-radius: 100px;
+    padding: 10.5px 10px;
+    border-radius: 8px;
     overflow: hidden;
     border: 1px solid var(--brand-color);
     width: calc(100% - 20px);
     display: none;
     box-shadow: 0px 0px 7px rgb(213 90 60 / 30%);
+    backdrop-filter: blur(6px);
 }
 
 .app-menu-items {
@@ -36,20 +36,32 @@
 }
 
 .app-menu-item .icon svg {
-    width: 16px;
-    height: 16px;
-    stroke: var(--muted);
+    width: 24px;
+    height: 24px;
     transition: all ease .3s;
 }
 
-.app-menu-item:hover .icon svg,
-.app-menu-item.active .icon svg {
+.app-menu-item .icon svg g{
+    fill: var(--brand-color);
+}
+
+.app-menu-item .icon svg g path{
+    stroke: var(--brand-color);
+}
+
+.app-menu-item .icon svg path {
+    stroke: var(--black);
+    transition: all ease .3s;
+}
+
+.app-menu-item:hover .icon svg path,
+.app-menu-item.active .icon svg path{
     stroke: var(--brand-color);
 }
 
 .app-menu-item p {
     color: var(--muted);
-    font-size: 14px;
+    font-size: 10px;
     line-height: 100%;
     text-transform: capitalize;
     font-weight: 500;

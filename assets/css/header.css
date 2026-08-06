@@ -89,7 +89,7 @@
     right: 0;
     width: 100%;
     height: 100%;
-    z-index: 9999;
+    z-index: 99999;
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
@@ -528,7 +528,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 9999;
+        z-index: 99999;
         padding: 10px;
         background: var(--white);
         box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
@@ -545,10 +545,6 @@
     .navbar-icons {
         order: 2;
         justify-content: flex-end;
-    }
-
-    .navbar-icon:first-child {
-        display: none;
     }
 
     .navbar-search {

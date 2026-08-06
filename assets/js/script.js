@@ -63,27 +63,24 @@ function handleScroll() {
 // navbar sticky search js end----
 
 // navbar search open js start ---
-document.querySelectorAll(".navbar-search").forEach((search) => {
-  const openBtn = search.querySelector(".search-open");
-  const closeBtns = search.querySelectorAll(
-    ".search-bar-window-cls-btn, .search-bar-close",
-  );
-  const searchWrap = search.querySelector(".search-bar-wrap");
-  const body = document.body;
-
-  // Open Search
-  openBtn?.addEventListener("click", () => {
-    searchWrap.classList.add("active");
-    body.classList.add("active");
-  });
+document.addEventListener("click", function (e) {
 
   // Close Search
-  closeBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      searchWrap.classList.remove("active");
-      body.classList.remove("active");
-    });
-  });
+  if (
+    e.target.closest(".search-bar-close") ||
+    e.target.closest(".search-bar-window-cls-btn")
+  ) {
+    document.querySelector(".search-bar-wrap")?.classList.remove("active");
+    document.body.classList.remove("active");
+    return;
+  }
+
+  // Open Search
+  if (e.target.closest(".navbar-search-open-btn")) {
+    document.querySelector(".search-bar-wrap")?.classList.add("active");
+    document.body.classList.add("active");
+  }
+
 });
 
 document.addEventListener("keydown", (e) => {
