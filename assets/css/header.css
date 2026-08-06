@@ -282,6 +282,11 @@
 .search-result-items {
     display: flex;
     flex-direction: column;
+    max-height: 50dvh;
+    overflow-y: auto;
+    height: fit-content;
+    scrollbar-width: thin;
+    scrollbar-color: var(--brand-color) transparent;
 }
 
 .search-result-item {
@@ -413,7 +418,7 @@
 
 .navbar-link-btn:after {
     content: "";
-    background: var(--bg-mark);
+    background: var(--brand-color);
     opacity: 0;
     height: 3px;
     transition: all ease .3s;
@@ -540,6 +545,10 @@
     .navbar-icons {
         order: 2;
         justify-content: flex-end;
+    }
+
+    .navbar-icon:first-child {
+        display: none;
     }
 
     .navbar-search {

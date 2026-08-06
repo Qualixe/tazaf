@@ -217,6 +217,32 @@ document
 
 // cart-drawer js end---
 
+// cart-drawer slider js start--
+var swiper = new Swiper(".cart-drawer-slider", {
+  slidesPerView: 1.3,
+  spaceBetween: 16,
+  grabCursor: true,
+  loop: true,
+  speed: 1000,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".cart-drawer-slider-btn-next",
+    prevEl: ".cart-drawer-slider-btn-prev",
+  },
+});
+// cart-drawer slider js end--
+
+// cart-drawer progesss-bar js start--
+const progress = document.querySelector(".progress");
+progress.addEventListener("input", function () {
+  const value = this.value;
+  this.style.background = `linear-gradient(to right, #d55a3c 0%, #422c26 ${value}%,rgb(236 219 216) ${value}%)`;
+});
+// cart-drawer progesss-bar js end--
+
 // text-grid js start---
 document.addEventListener("DOMContentLoaded", () => {
   const mq = window.matchMedia("(max-width:575px)");
