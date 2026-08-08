@@ -370,6 +370,36 @@
 
 .navbar-icon svg path {
     stroke: var(--black);
+    transition: all ease .3s;
+}
+
+.navbar-icon:hover svg path {
+    stroke: var(--brand-color);
+}
+
+.navbar-icon.cart-drawer-open{
+    position: relative;
+}
+
+.cart-count{
+    position: absolute;
+    z-index: 1;
+    content: "";
+    top: 3px;
+    right: 3px;
+    width: 16px;
+    height: 16px;
+    background: var(--brand-color);
+    border-radius: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 400;
 }
 
 .navbar-link-area {
@@ -690,7 +720,7 @@
     transition: all ease .3s;
 }
 
-.mobile-menu-tab.active .mobile-menu-tab-title{
+.mobile-menu-tab.active .mobile-menu-tab-title {
     font-weight: 500;
 }
 
@@ -763,6 +793,7 @@
 .mobile-menu-tabs-content-item-grid {
     display: flex;
     flex-direction: column;
+    gap: 4px;
 }
 
 .mobile-menu-tabs-content-item-grid-img {
@@ -835,6 +866,14 @@
     /* header css start */
     .navbar-logo {
         width: 70px;
+    }
+
+    .search-bar-top {
+        padding: 16px;
+    }
+
+    .search-bar-btm {
+        padding: 16px;
     }
 
     .search-categories {

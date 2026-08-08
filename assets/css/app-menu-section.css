@@ -31,6 +31,15 @@
     user-select: none;
 }
 
+.app-menu-item.cart-drawer-open {
+    position: relative;
+}
+
+.app-menu-item.cart-drawer-open .cart-count {
+    top: -5px;
+    right: -8px;
+}
+
 .app-menu-item .icon {
     display: flex;
 }
@@ -41,11 +50,11 @@
     transition: all ease .3s;
 }
 
-.app-menu-item .icon svg g{
+.app-menu-item .icon svg g {
     fill: var(--brand-color);
 }
 
-.app-menu-item .icon svg g path{
+.app-menu-item .icon svg g path {
     stroke: var(--brand-color);
 }
 
@@ -55,7 +64,7 @@
 }
 
 .app-menu-item:hover .icon svg path,
-.app-menu-item.active .icon svg path{
+.app-menu-item.active .icon svg path {
     stroke: var(--brand-color);
 }
 
