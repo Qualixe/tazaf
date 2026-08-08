@@ -64,7 +64,6 @@ function handleScroll() {
 
 // navbar search open js start ---
 document.addEventListener("click", function (e) {
-
   // Close Search
   if (
     e.target.closest(".search-bar-close") ||
@@ -80,7 +79,6 @@ document.addEventListener("click", function (e) {
     document.querySelector(".search-bar-wrap")?.classList.add("active");
     document.body.classList.add("active");
   }
-
 });
 
 document.addEventListener("keydown", (e) => {
@@ -95,6 +93,165 @@ document.addEventListener("keydown", (e) => {
   }
 });
 // navbar search open js end ---
+
+// mobile-menu sidebar js start---
+const mobileMenu = document.querySelector(".mobile-menu-wrap");
+const mobileMenuContainer = document.querySelector(".mobile-menu-container");
+
+function openMobileMenu(event) {
+  event.stopPropagation();
+  mobileMenu?.classList.add("active");
+  mobileMenuContainer?.classList.add("active");
+}
+
+function closeMobileMenu(event) {
+  event.stopPropagation();
+  mobileMenu?.classList.remove("active");
+  mobileMenuContainer?.classList.remove("active");
+}
+
+document.querySelectorAll(".app-menu-open").forEach((btn) => {
+  btn.addEventListener("click", openMobileMenu);
+});
+
+document
+  .querySelectorAll(".mobile-menu-close-window-btn, .mobile-menu-close-btn")
+  .forEach((btn) => {
+    btn.addEventListener("click", closeMobileMenu);
+  });
+
+// mobile-menu sidebar js end---
+
+// mobile-menu-tab js start--
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".mobile-menu-tabs-contents");
+  const tabs = [...document.querySelectorAll(".mobile-menu-tab")];
+  const contents = [...document.querySelectorAll(".mobile-menu-tabs-content")];
+
+  if (!container || !tabs.length || !contents.length) return;
+
+  let isClickScroll = false;
+  let scrollTimer;
+
+  const setActive = (id, scroll = true) => {
+    const tab = tabs.find((el) => el.hash === `#${id}`);
+    if (!tab) return;
+
+    tabs.forEach((el) => el.classList.toggle("active", el === tab));
+
+    if (scroll) {
+      tab.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    }
+  };
+
+  // Tab click
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const target = document.getElementById(tab.hash.slice(1));
+      if (!target) return;
+
+      isClickScroll = true;
+      setActive(target.id);
+
+      container.scrollTo({
+        top: target.offsetTop - container.offsetTop - 12,
+        behavior: "smooth",
+      });
+
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        isClickScroll = false;
+      }, 2000);
+    });
+  });
+
+  // Content scroll
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (isClickScroll) return;
+
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible) setActive(visible.target.id);
+    },
+    {
+      root: container,
+      rootMargin: "-10% 0px -55% 0px",
+      threshold: [0.15, 0.3, 0.5, 0.75],
+    },
+  );
+
+  contents.forEach((content) => observer.observe(content));
+
+  // Initial state
+  setActive(
+    tabs.find((tab) => tab.classList.contains("active"))?.hash.slice(1) ||
+      tabs[0].hash.slice(1),
+    false,
+  );
+});
+// mobile-menu-tab js end--
+
+// cart-drawer js start---
+const cartDrawer = document.querySelector(".cart-drawer");
+const cartDrawerInner = document.querySelector(".cart-drawer-inner");
+
+function openCartDrawer(event) {
+  event.stopPropagation();
+  cartDrawer?.classList.add("active");
+  cartDrawerInner?.classList.add("active");
+}
+
+function closeCartDrawer(event) {
+  event.stopPropagation();
+  cartDrawer?.classList.remove("active");
+  cartDrawerInner?.classList.remove("active");
+}
+
+document.querySelectorAll(".cart-drawer-open").forEach((btn) => {
+  btn.addEventListener("click", openCartDrawer);
+});
+
+document
+  .querySelectorAll(".cart-drawer-close-window-btn, .cart-drawer-close-btn")
+  .forEach((btn) => {
+    btn.addEventListener("click", closeCartDrawer);
+  });
+
+// cart-drawer js end---
+
+// cart-drawer slider js start--
+var swiper = new Swiper(".cart-drawer-slider", {
+  slidesPerView: 1.3,
+  spaceBetween: 16,
+  grabCursor: true,
+  loop: true,
+  speed: 1000,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".cart-drawer-slider-btn-next",
+    prevEl: ".cart-drawer-slider-btn-prev",
+  },
+});
+// cart-drawer slider js end--
+
+// cart-drawer progesss-bar js start--
+const progress = document.querySelector(".progress");
+progress.addEventListener("input", function () {
+  const value = this.value;
+  this.style.background = `linear-gradient(to right, #d55a3c 0%, #422c26 ${value}%,rgb(236 219 216) ${value}%)`;
+});
+// cart-drawer progesss-bar js end--
 
 // accordion js start----
 document.addEventListener("DOMContentLoaded", () => {
@@ -185,60 +342,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 // accordion js end----
-
-// cart-drawer js start---
-const cartDrawer = document.querySelector(".cart-drawer");
-const cartDrawerInner = document.querySelector(".cart-drawer-inner");
-
-function openCartDrawer(event) {
-  event.stopPropagation();
-  cartDrawer?.classList.add("active");
-  cartDrawerInner?.classList.add("active");
-}
-
-function closeCartDrawer(event) {
-  event.stopPropagation();
-  cartDrawer?.classList.remove("active");
-  cartDrawerInner?.classList.remove("active");
-}
-
-document.querySelectorAll(".cart-drawer-open").forEach((btn) => {
-  btn.addEventListener("click", openCartDrawer);
-});
-
-document
-  .querySelectorAll(".cart-drawer-close-window-btn, .cart-drawer-close-btn")
-  .forEach((btn) => {
-    btn.addEventListener("click", closeCartDrawer);
-  });
-
-// cart-drawer js end---
-
-// cart-drawer slider js start--
-var swiper = new Swiper(".cart-drawer-slider", {
-  slidesPerView: 1.3,
-  spaceBetween: 16,
-  grabCursor: true,
-  loop: true,
-  speed: 1000,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-  navigation: {
-    nextEl: ".cart-drawer-slider-btn-next",
-    prevEl: ".cart-drawer-slider-btn-prev",
-  },
-});
-// cart-drawer slider js end--
-
-// cart-drawer progesss-bar js start--
-const progress = document.querySelector(".progress");
-progress.addEventListener("input", function () {
-  const value = this.value;
-  this.style.background = `linear-gradient(to right, #d55a3c 0%, #422c26 ${value}%,rgb(236 219 216) ${value}%)`;
-});
-// cart-drawer progesss-bar js end--
 
 // text-grid js start---
 document.addEventListener("DOMContentLoaded", () => {
