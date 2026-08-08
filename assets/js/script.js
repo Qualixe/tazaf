@@ -259,11 +259,11 @@ var swiper = new Swiper(".hero-slider", {
   spaceBetween: 16,
   loop: true,
   speed: 1000,
-  autoplay: false,
-  // autoplay: {
-  //   delay: 3500,
-  //   disableOnInteraction: false,
-  // },
+  // autoplay: false,
+  autoplay: {
+    delay: 3500,
+    disableOnInteraction: false,
+  },
   pagination: {
     el: ".hero-pagination",
     clickable: true,
