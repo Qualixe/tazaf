@@ -1,0 +1,105 @@
+/* hero-section css start */
+.hero-section {
+    padding: 20px 0;
+}
+
+.slider-hero-item {
+    display: block;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+}
+
+.slider-hero-overlay {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* background-color: rgba(0, 0, 0, 0.3); */
+}
+
+.hero-content-inner {
+    min-height: 313px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-hero-overlay .hero-content {
+    width: 52%;
+    text-align: center;
+    display: none;
+}
+
+.hero-content-heading {
+    color: var(--white);
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.hero-content-btn {
+    margin: 24px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.swiper.hero-slider .swiper-pagination .swiper-pagination-bullet {
+    border-color: var(--white);
+}
+
+.swiper.hero-slider .swiper-pagination .swiper-pagination-bullet::after {
+    background-color: var(--white);
+}
+
+.swiper.hero-slider .swiper-button-prev,
+.swiper.hero-slider .swiper-button-next {
+    border: 1px solid var(--white);
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.swiper.hero-slider .swiper-button-prev:hover,
+.swiper.hero-slider .swiper-button-next:hover {
+    border: 1px solid var(--white);
+    color: var(--white);
+    background-color: var(--brand-color);
+}
+
+.swiper.hero-slider .swiper-button-prev::after,
+.swiper.hero-slider .swiper-button-next::after {
+    color: var(--black);
+}
+
+.swiper.hero-slider .swiper-button-prev:hover:after,
+.swiper.hero-slider .swiper-button-next:hover:after {
+    color: var(--white);
+}
+
+/* hero section css end */
+
+@media only screen and (max-width:767px) {
+
+    /* hero section css start */
+
+    .slider-hero-overlay .hero-content {
+        width: 70%;
+    }
+
+    /* hero section css end */
+}
+
+@media only screen and (max-width: 575px) {
+
+    /* hero section css start */
+    .hero-content-inner {
+        /* height: 300px; */
+    }
+
+    .slider-hero-overlay .hero-content {
+        width: 100%;
+    }
+
+    /* hero section css end */
+}
+
+/* hero-section css end */

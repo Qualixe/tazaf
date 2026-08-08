@@ -64,6 +64,7 @@
 
 .footer-list li a:hover {
     text-decoration: underline;
+    color: var(--brand-color);
 }
 
 .footer-list li i {

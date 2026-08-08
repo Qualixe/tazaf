@@ -252,6 +252,29 @@ progress.addEventListener("input", function () {
 });
 // cart-drawer progesss-bar js end--
 
+// hero slider js start--
+var swiper = new Swiper(".hero-slider", {
+  slidesPerView: 1,
+  grabCursor: true,
+  spaceBetween: 16,
+  loop: true,
+  speed: 1000,
+  autoplay: false,
+  // autoplay: {
+  //   delay: 3500,
+  //   disableOnInteraction: false,
+  // },
+  pagination: {
+    el: ".hero-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".hero-button-next",
+    prevEl: ".hero-button-prev",
+  },
+});
+// hero slider js end--
+
 // Footer dropdown responsive accordion js start --
 document.addEventListener("DOMContentLoaded", () => {
   const breakpoint = window.matchMedia("(max-width: 992px)");

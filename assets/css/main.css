@@ -651,6 +651,8 @@ button {
     border-radius: 50px;
     overflow: hidden;
     margin: 0;
+    opacity: 1;
+    visibility: visible;
 }
 
 .cart-drawer-slider-btn-prev.swiper-button-prev::after,
@@ -689,7 +691,7 @@ button {
     line-height: 17px;
     color: var(--paragraph-text-color);
     transition: all ease .3s;
-        display: flex;
+    display: flex;
 }
 
 .cart-drawer-slider-item .title:hover {
@@ -793,6 +795,97 @@ button {
 
 /* cart-drawer css end */
 
+/* swiper pagination and button css start */
+.swiper-pagination .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 1px solid var(--brand-color);
+    position: relative;
+    opacity: 1;
+}
+
+.swiper-pagination .swiper-pagination-bullet::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 9px;
+    height: 9px;
+    border-radius: 100%;
+    background-color: var(--btn-bg);
+    transition: ease .5s;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active.swiper-pagination-bullet::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--brand-color);
+    color: var(--black);
+    background-color: var(--white);
+    transition: ease .3s;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    border: 1px solid var(--brand-color);
+    color: var(--white);
+    background-color: var(--brand-color);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 20px;
+    color: var(--black);
+}
+
+.swiper-button-prev:hover::after,
+.swiper-button-next:hover::after {
+    color: var(--white);
+}
+
+.swiper-button-next {
+    right: -100px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.swiper-button-prev {
+    left: -100px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.swiper:hover .swiper-button-prev {
+    left: 20px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.swiper:hover .swiper-button-next {
+    right: 20px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+    display: none;
+}
+
+/* swiper pagination and button css end */
+
 /* modal css start */
 .modal {
     position: fixed;
@@ -890,6 +983,30 @@ button {
 /* modal css end */
 
 @media only screen and (max-width:575px) {
+
+    /* pagination css start */
+    .swiper-pagination .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+    }
+
+    .swiper-pagination .swiper-pagination-bullet::after {
+        width: 6px;
+        height: 6px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 35px;
+        height: 35px;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 12px;
+    }
+
+    /* pagination css end */
 
     /* common-css start */
     .container {
