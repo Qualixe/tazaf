@@ -259,7 +259,6 @@ var swiper = new Swiper(".hero-slider", {
   spaceBetween: 16,
   loop: true,
   speed: 1000,
-  // autoplay: false,
   autoplay: {
     delay: 3500,
     disableOnInteraction: false,
@@ -272,8 +271,119 @@ var swiper = new Swiper(".hero-slider", {
     nextEl: ".hero-button-next",
     prevEl: ".hero-button-prev",
   },
+  breakpoints: {
+    1: {
+      spaceBetween: 0,
+    },
+    993: {
+      spaceBetween: 16,
+    },
+  },
 });
 // hero slider js end--
+
+// category js start--
+var swiper = new Swiper(".category-slider", {
+  slidesPerView: "auto",
+  spaceBetween: 10,
+  grabCursor: true,
+  loop: false,
+});
+// category js end--
+
+// count-down js start--
+document.querySelectorAll(".countdown").forEach((countdown) => {
+  const endDate = new Date(countdown.dataset.end).getTime();
+
+  const daysEl = countdown.querySelector(".countdown-days");
+  const hoursEl = countdown.querySelector(".countdown-hours");
+  const minutesEl = countdown.querySelector(".countdown-minutes");
+  const secondsEl = countdown.querySelector(".countdown-seconds");
+
+  const updateCountdown = () => {
+    const remaining = endDate - Date.now();
+
+    if (remaining <= 0) {
+      daysEl.textContent = "00";
+      hoursEl.textContent = "00";
+      minutesEl.textContent = "00";
+      secondsEl.textContent = "00";
+      return;
+    }
+
+    const totalSeconds = Math.floor(remaining / 1000);
+
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    daysEl.textContent = String(days).padStart(2, "0");
+    hoursEl.textContent = String(hours).padStart(2, "0");
+    minutesEl.textContent = String(minutes).padStart(2, "0");
+    secondsEl.textContent = String(seconds).padStart(2, "0");
+  };
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+});
+// count-down js end--
+
+// card slider js start--
+var swiper = new Swiper(".card-slider", {
+  effect: "coverflow",
+  slidesPerView: 1.6,
+  centeredSlides: true,
+  grabCursor: true,
+  spaceBetween: 16,
+  loop: true,
+  speed: 1000,
+  autoplay: false,
+  coverflowEffect: {
+    rotate: 25,
+    stretch: 0,
+    depth: 150,
+    modifier: 1,
+    slideShadows: false,
+  },
+  // autoplay: {
+  //   delay: 3500,
+  //   disableOnInteraction: false,
+  // },
+  breakpoints: {
+    1: {
+      effect: "coverflow",
+      slidesPerView: 1.4,
+      centeredSlides: true,
+      spaceBetween: 24,
+    },
+    576: {
+      effect: "coverflow",
+      slidesPerView: 2.2,
+      centeredSlides: true,
+      spaceBetween: 16,
+    },
+    768: {
+      effect: "slide",
+      slidesPerView: 3.2,
+      centeredSlides: false,
+      spaceBetween: 10,
+    },
+    993: {
+      effect: "slide",
+      slidesPerView: 3.8,
+      centeredSlides: false,
+      spaceBetween: 10,
+    },
+    1200: {
+      effect: "slide",
+      slidesPerView: 4.5,
+      centeredSlides: false,
+      spaceBetween: 10,
+    },
+  },
+});
+// card slider js end--
 
 // Footer dropdown responsive accordion js start --
 document.addEventListener("DOMContentLoaded", () => {

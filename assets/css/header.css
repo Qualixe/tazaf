@@ -41,6 +41,7 @@
     width: 100%;
     border-radius: 8px;
     gap: 8px;
+    background: var(--white);
 }
 
 .search-open .icon {
@@ -377,11 +378,11 @@
     stroke: var(--brand-color);
 }
 
-.navbar-icon.cart-drawer-open{
+.navbar-icon.cart-drawer-open {
     position: relative;
 }
 
-.cart-count{
+.cart-count {
     position: absolute;
     z-index: 1;
     content: "";
@@ -468,7 +469,7 @@
 
 .megamenu {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: 100%;
     left: 0;
     width: 100%;
@@ -484,6 +485,8 @@
     padding: 24px 14px;
     overflow-y: auto;
     box-shadow: 0 3px 12px rgb(0 0 0 / 12%);
+    scrollbar-width: thin;
+    scrollbar-color: var(--brand-color) transparent;
 }
 
 .navbar-link:hover .megamenu {
@@ -820,7 +823,16 @@
 
     /* header css start */
     .header {
+        padding-bottom: 10px;
+    }
+
+    .header.home-header {
         box-shadow: unset;
+        padding-bottom: 0;
+    }
+
+    .home-header .container {
+        padding: 0;
     }
 
     .header.home-nav .navbar-search {
@@ -828,7 +840,7 @@
         top: 0;
         left: 0;
         z-index: 99999;
-        padding: 10px;
+        padding: 10px 16px;
         background: var(--white);
         box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
     }
@@ -841,9 +853,17 @@
         order: 1;
     }
 
+    .home-header .navbar-logo {
+        margin-left: 16px;
+    }
+
     .navbar-icons {
         order: 2;
         justify-content: flex-end;
+    }
+
+    .home-header .navbar-icons {
+        margin-right: 16px;
     }
 
     .navbar-search {
@@ -851,6 +871,12 @@
         grid-column: span 2;
         width: 100%;
         max-width: 100%;
+    }
+
+    .home-header .navbar-search {
+        padding: 10px 16px;
+        background: #D4C3AE;
+        box-shadow: 0 1px 0 #D4C3AE;
     }
 
     .navbar-link-area {

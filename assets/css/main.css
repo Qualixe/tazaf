@@ -51,8 +51,9 @@
     --paragraph-text-color: #211913;
     --body-color: #fff;
     --card-bg: #dcdcdc;
-    --btn-bg: #211913;
-    --btn-color: #fff;
+    --card-badge-bg: #008000;
+    --btn-bg: transparent;
+    --btn-color: #211913;
     --border-color: #988f8d;
     --border-color2: #e8e3e1;
     --brand-color: #d55a3c;
@@ -155,7 +156,8 @@ h6 {
 /* 16 → 18 */
 
 .p,
-p {
+p,
+span {
     font-size: 16px;
     font-weight: 400;
     color: var(--paragraph-text-color);
@@ -223,24 +225,24 @@ button {
 }
 
 .btn {
-    padding: 11px 30px;
+    padding: 10px 30px;
     color: var(--btn-color);
     background: var(--btn-bg);
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 1;
-    text-transform: uppercase;
+    text-transform: capitalize;
     display: inline-block;
     text-align: center;
     width: 100%;
     transition: all ease .3s;
-    border: 1px solid var(--btn-bg);
+    border: 1px solid var(--btn-color);
     border-radius: 5px;
     overflow: hidden;
 }
 
 .btn:hover {
-    color: var(--btn-bg);
+    color: var(--white);
     background: var(--btn-color);
 }
 
