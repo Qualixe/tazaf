@@ -12,7 +12,7 @@
     min-height: 260px;
     border-radius: 20px;
     overflow: hidden;
-    background-color: #f7c948;
+    background-color: var(--brand-color);
     padding: 0 60px;
 }
 
@@ -40,14 +40,14 @@
 }
 
 .gifting-banner-badge-title span {
-    font-style: italic;
+    color: var(--brand-color);
     font-weight: 800;
 }
 
 .gifting-banner-text {
     font-size: 24px;
     font-weight: 700;
-    color: var(--black);
+    color: var(--white);
 }
 
 .gifting-banner-img {
@@ -94,15 +94,29 @@
     /* gifting-banner-section css start */
     .gifting-banner-card {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
-        padding: 28px 24px;
-        gap: 20px;
+        padding: 2px;
+        gap: 16px;
         min-height: unset;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .gifting-banner-content {
+        align-items: center;
+        gap: 16px;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .gifting-banner-text {
+        color: var(--black);
     }
 
     .gifting-banner-img {
         width: 100%;
+        border-radius: 10px;
         height: 200px;
     }
 
