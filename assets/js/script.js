@@ -337,7 +337,7 @@ var swiper = new Swiper(".card-slider", {
   grabCursor: true,
   spaceBetween: 16,
   loop: true,
-  speed: 1000,
+  speed: 500,
   autoplay: false,
   coverflowEffect: {
     rotate: 25,
@@ -483,4 +483,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   update();
 });
+
+// tab-section js start--
+document.querySelectorAll(".tab-section-nav-item").forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const target = tab.dataset.tab;
+
+    document
+      .querySelectorAll(".tab-section-nav-item")
+      .forEach((el) => el.classList.toggle("active", el === tab));
+
+    document
+      .querySelectorAll(".tab-section-panel")
+      .forEach((panel) => panel.classList.toggle("active", panel.id === target));
+  });
+});
+// tab-section js end--
 // text-grid js end---
