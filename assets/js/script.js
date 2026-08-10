@@ -385,6 +385,55 @@ var swiper = new Swiper(".card-slider", {
 });
 // card slider js end--
 
+// tab-section js start--
+document.querySelectorAll(".tab-section-nav-item").forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const target = tab.dataset.tab;
+
+    document
+      .querySelectorAll(".tab-section-nav-item")
+      .forEach((el) => el.classList.toggle("active", el === tab));
+
+    document
+      .querySelectorAll(".tab-section-panel")
+      .forEach((panel) =>
+        panel.classList.toggle("active", panel.id === target),
+      );
+  });
+});
+// tab-section js end--
+
+// image-category-slider js start--
+var swiper = new Swiper(".image-category-slider", {
+  slidesPerView: 4,
+  spaceBetween: 20,
+  grabCursor: true,
+  loop: false,
+  breakpoints: {
+    // when window width is >= 320px
+    1: {
+      spaceBetween: 10,
+      slidesPerView: 1.7,
+    },
+    // when window width is >= 576px
+    576: {
+      spaceBetween: 10,
+      slidesPerView: 2.2,
+    },
+    // when window width is >= 767px
+    768: {
+      spaceBetween: 16,
+      slidesPerView: 3.3,
+    },
+    // when window width is >= 993px
+    993: {
+      spaceBetween: 20,
+      slidesPerView: 4,
+    },
+  },
+});
+// image-category-slider js end--
+
 // Footer dropdown responsive accordion js start --
 document.addEventListener("DOMContentLoaded", () => {
   const breakpoint = window.matchMedia("(max-width: 992px)");
@@ -449,54 +498,159 @@ document.addEventListener("DOMContentLoaded", () => {
 // Footer dropdown responsive accordion js end --
 
 // text-grid js start---
-document.addEventListener("DOMContentLoaded", () => {
-  const mq = window.matchMedia("(max-width:575px)");
-  const items = [...document.querySelectorAll(".text-grids .text-grid")];
-  const btn = document.getElementById("textGridToggleBtn");
-  function update(reset = true) {
-    if (!btn) return;
-    if (!mq.matches) {
-      items.forEach((i) => (i.style.display = ""));
-      btn.style.display = "none";
-      btn.dataset.expanded = "false";
-      return;
-    }
-    btn.style.display = "inline-flex";
-    const expanded = btn.dataset.expanded === "true";
-    items.forEach((el, idx) => {
-      el.style.display = expanded || idx < 3 ? "flex" : "none";
-    });
-    btn.textContent = expanded ? "Load Less" : "Load More";
-  }
-  btn?.addEventListener("click", () => {
-    btn.dataset.expanded = btn.dataset.expanded === "true" ? "false" : "true";
-    update(false);
-    if (btn.dataset.expanded !== "true") {
-      document
-        .querySelector(".text-grid-section")
-        .scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-  mq.addEventListener("change", () => {
-    btn.dataset.expanded = "false";
-    update();
-  });
-  update();
-});
-
-// tab-section js start--
-document.querySelectorAll(".tab-section-nav-item").forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const target = tab.dataset.tab;
-
-    document
-      .querySelectorAll(".tab-section-nav-item")
-      .forEach((el) => el.classList.toggle("active", el === tab));
-
-    document
-      .querySelectorAll(".tab-section-panel")
-      .forEach((panel) => panel.classList.toggle("active", panel.id === target));
-  });
-});
-// tab-section js end--
+// document.addEventListener("DOMContentLoaded", () => {
+//   const mq = window.matchMedia("(max-width:575px)");
+//   const items = [...document.querySelectorAll(".text-grids .text-grid")];
+//   const btn = document.getElementById("textGridToggleBtn");
+//   function update(reset = true) {
+//     if (!btn) return;
+//     if (!mq.matches) {
+//       items.forEach((i) => (i.style.display = ""));
+//       btn.style.display = "none";
+//       btn.dataset.expanded = "false";
+//       return;
+//     }
+//     btn.style.display = "inline-flex";
+//     const expanded = btn.dataset.expanded === "true";
+//     items.forEach((el, idx) => {
+//       el.style.display = expanded || idx < 3 ? "flex" : "none";
+//     });
+//     btn.textContent = expanded ? "Load Less" : "Load More";
+//   }
+//   btn?.addEventListener("click", () => {
+//     btn.dataset.expanded = btn.dataset.expanded === "true" ? "false" : "true";
+//     update(false);
+//     if (btn.dataset.expanded !== "true") {
+//       document
+//         .querySelector(".text-grid-section")
+//         .scrollIntoView({ behavior: "smooth", block: "start" });
+//     }
+//   });
+//   mq.addEventListener("change", () => {
+//     btn.dataset.expanded = "false";
+//     update();
+//   });
+//   update();
+// });
 // text-grid js end---
+
+// community-review popup js start--
+(function () {
+  const items = document.querySelectorAll(".community-review-item");
+  const popup = document.querySelector(".community-review-popup");
+
+  if (!popup || !items.length) return;
+
+  const slides = [...popup.querySelectorAll(".community-review-popup-slide")];
+  const videos = slides.map((slide) => slide.querySelector(".community-review-popup-video"));
+  const progressBars = [...popup.querySelectorAll(".community-review-popup-progress-bar")];
+  const prevBtn = popup.querySelector(".community-review-popup-nav-btn.prev");
+  const nextBtn = popup.querySelector(".community-review-popup-nav-btn.next");
+  const muteBtn = popup.querySelector(".community-review-popup-mute-btn");
+  const productImg = popup.querySelector(".community-review-popup-product-img img");
+  const productTitle = popup.querySelector(".community-review-popup-product-title");
+  const productPrice = popup.querySelector(".community-review-popup-product-price .curr");
+  const productPrevPrice = popup.querySelector(".community-review-popup-product-price .prev");
+
+  let current = 0;
+  let muted = true;
+
+  function pauseAll() {
+    videos.forEach((video) => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  }
+
+  function goTo(index) {
+    if (index < 0 || index >= slides.length) return;
+
+    pauseAll();
+    current = index;
+
+    slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+
+    progressBars.forEach((bar, i) => {
+      bar.classList.toggle("completed", i < index);
+      bar.querySelector("i").style.width = i < index ? "100%" : "0%";
+    });
+
+    const slide = slides[index];
+    productImg.src = slide.dataset.productImg;
+    productTitle.textContent = slide.dataset.productTitle;
+    productPrice.textContent = slide.dataset.productPrice;
+    productPrevPrice.textContent = slide.dataset.productPreviousPrice;
+
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === slides.length - 1;
+
+    const video = videos[index];
+    video.muted = muted;
+    video.currentTime = 0;
+    video.play().catch(() => {});
+  }
+
+  function openPopup(index) {
+    document.body.classList.add("active");
+    popup.classList.add("active");
+    goTo(index);
+  }
+
+  function closePopup() {
+    popup.classList.remove("active");
+    document.body.classList.remove("active");
+    pauseAll();
+  }
+
+  items.forEach((item) => {
+    item.addEventListener("click", () => {
+      openPopup(Number(item.dataset.reviewIndex) || 0);
+    });
+  });
+
+  popup
+    .querySelector(".community-review-popup-close-window-btn")
+    .addEventListener("click", closePopup);
+  popup
+    .querySelector(".community-review-popup-close-btn")
+    .addEventListener("click", closePopup);
+
+  prevBtn.addEventListener("click", () => goTo(current - 1));
+  nextBtn.addEventListener("click", () => goTo(current + 1));
+
+  muteBtn.addEventListener("click", () => {
+    muted = !muted;
+    videos[current].muted = muted;
+    muteBtn.classList.toggle("unmuted", !muted);
+  });
+
+  popup.querySelectorAll(".community-review-popup-share-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (navigator.share) {
+        navigator.share({ title: document.title, url: window.location.href });
+      }
+    });
+  });
+
+  videos.forEach((video, i) => {
+    video.addEventListener("timeupdate", () => {
+      if (i !== current || !video.duration) return;
+      progressBars[i].querySelector("i").style.width =
+        (video.currentTime / video.duration) * 100 + "%";
+    });
+
+    video.addEventListener("ended", () => {
+      if (i === current && current < slides.length - 1) {
+        goTo(current + 1);
+      }
+    });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!popup.classList.contains("active")) return;
+    if (e.key === "Escape") closePopup();
+    if (e.key === "ArrowRight") goTo(current + 1);
+    if (e.key === "ArrowLeft") goTo(current - 1);
+  });
+})();
+// community-review popup js end--
