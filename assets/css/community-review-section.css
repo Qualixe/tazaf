@@ -105,7 +105,7 @@
     z-index: 2;
     width: 100%;
     max-width: 340px;
-    max-height: 90vh;
+    max-height: 90dvh;
     transform: scale(.94);
     opacity: 0;
     transition: transform .35s ease, opacity .35s ease;
