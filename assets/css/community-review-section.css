@@ -5,7 +5,7 @@
 
 .community-review-title {
     margin-bottom: 20px;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 600;
 }
 
@@ -365,10 +365,6 @@
         gap: 10px;
     }
 
-    .community-review-title {
-        font-size: 22px;
-    }
-
     .community-review-item-text {
         font-size: 13px;
     }
@@ -381,6 +377,7 @@
     /* community-review-section css start */
     .community-review-title {
         padding: 0 16px;
+         font-size: 18px;
     }
 
     .community-review-items {
