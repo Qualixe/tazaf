@@ -434,123 +434,6 @@ var swiper = new Swiper(".image-category-slider", {
 });
 // image-category-slider js end--
 
-// collection-category-slider js start--
-var swiper = new Swiper(".collection-category-slider", {
-  slidesPerView: "auto",
-  spaceBetween: 20,
-  grabCursor: true,
-  loop: false,
-  breakpoints: {
-    1: {
-      spaceBetween: 10,
-    },
-    576: {
-      spaceBetween: 20,
-    },
-  },
-});
-// collection-category-slider js end--
-
-// collection filter js start---
-document.addEventListener("DOMContentLoaded", () => {
-  const sidebar = document.querySelector(".collection-filter");
-
-  // Filter sidebar
-  document
-    .querySelectorAll(
-      ".filter-open-btn, .filter-window-close-btn, .filter-close-btn",
-    )
-    .forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const open = btn.classList.contains("filter-open-btn");
-
-        sidebar?.classList.toggle("active", open);
-        document.body.classList.toggle("active", open);
-      });
-    });
-
-  // Accordion
-  document.querySelectorAll(".accordion-toggle-btn").forEach((btn) => {
-    const content = btn.nextElementSibling;
-
-    content.style.maxHeight = `${content.scrollHeight}px`;
-    btn.parentElement.classList.add("active");
-
-    btn.addEventListener("click", () => {
-      btn.parentElement.classList.toggle("active");
-
-      content.style.maxHeight = content.style.maxHeight
-        ? null
-        : `${content.scrollHeight}px`;
-    });
-  });
-});
-// collection filter js end---
-
-// Footer dropdown responsive accordion js start --
-document.addEventListener("DOMContentLoaded", () => {
-  const breakpoint = window.matchMedia("(max-width: 992px)");
-  const items = document.querySelectorAll(".footer-item");
-
-  const closeItem = (item) => {
-    const content = item.querySelector(".footer-content");
-    if (!content) return;
-
-    item.classList.remove("active");
-    content.style.maxHeight = "0px";
-  };
-
-  const openItem = (item) => {
-    const content = item.querySelector(".footer-content");
-    if (!content) return;
-
-    item.classList.add("active");
-    content.style.maxHeight = `${content.scrollHeight}px`;
-  };
-
-  const setupAccordion = () => {
-    items.forEach((item) => {
-      const title = item.querySelector(".footer-item-title");
-      const content = item.querySelector(".footer-content");
-
-      if (!title || !content) return;
-
-      // Remove previous inline state
-      title.onclick = null;
-
-      if (!breakpoint.matches) {
-        item.classList.remove("active");
-        content.style.maxHeight = "";
-        return;
-      }
-
-      // Mobile: close initially
-      closeItem(item);
-
-      title.onclick = () => {
-        const isActive = item.classList.contains("active");
-
-        // Close others
-        items.forEach((otherItem) => {
-          if (otherItem !== item) {
-            closeItem(otherItem);
-          }
-        });
-
-        // Toggle current
-        isActive ? closeItem(item) : openItem(item);
-      };
-    });
-  };
-
-  setupAccordion();
-
-  // Handle responsive resize
-  breakpoint.addEventListener("change", setupAccordion);
-});
-// Footer dropdown responsive accordion js end --
-
 // community-review popup js start--
 (function () {
   const items = document.querySelectorAll(".community-review-item");
@@ -683,3 +566,212 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })();
 // community-review popup js end--
+
+// collection-category-slider js start--
+var swiper = new Swiper(".collection-category-slider", {
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  grabCursor: true,
+  loop: false,
+  breakpoints: {
+    1: {
+      spaceBetween: 10,
+    },
+    576: {
+      spaceBetween: 20,
+    },
+  },
+});
+// collection-category-slider js end--
+
+// collection filter js start---
+document.addEventListener("DOMContentLoaded", () => {
+  const sidebar = document.querySelector(".collection-filter");
+
+  // Filter sidebar
+  document
+    .querySelectorAll(
+      ".filter-open-btn, .filter-window-close-btn, .filter-close-btn",
+    )
+    .forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const open = btn.classList.contains("filter-open-btn");
+
+        sidebar?.classList.toggle("active", open);
+        document.body.classList.toggle("active", open);
+      });
+    });
+
+  // Accordion
+  document.querySelectorAll(".accordion-toggle-btn").forEach((btn) => {
+    const content = btn.nextElementSibling;
+
+    content.style.maxHeight = `${content.scrollHeight}px`;
+    btn.parentElement.classList.add("active");
+
+    btn.addEventListener("click", () => {
+      btn.parentElement.classList.toggle("active");
+
+      content.style.maxHeight = content.style.maxHeight
+        ? null
+        : `${content.scrollHeight}px`;
+    });
+  });
+});
+// collection filter js end---
+
+// product-slider js start---
+var swiper = new Swiper(".product-slider-thumb", {
+  direction: "vertical",
+  loop: false,
+  spaceBetween: 20,
+  slidesPerView: 5,
+  freeMode: true,
+  mousewheel: true,
+  breakpoints: {
+    // when window width is >= 320px
+    1: {
+      direction: "horizontal",
+      spaceBetween: 10,
+      slidesPerView: 4,
+    },
+    // when window width is >= 576px
+    576: {
+      direction: "horizontal",
+      spaceBetween: 20,
+      slidesPerView: 5,
+    },
+    // when window width is >= 767px
+    768: {
+      direction: "vertical",
+      spaceBetween: 20,
+      slidesPerView: 5,
+    },
+    // when window width is >= 767px
+    993: {
+      direction: "vertical",
+    },
+  },
+});
+var swiper2 = new Swiper(".product-slider", {
+  loop: true,
+  autoHeight: true,
+  spaceBetween: 10,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".product-slider-pagination",
+    clickable: true,
+  },
+  thumbs: {
+    swiper: swiper,
+  },
+});
+// product-slider js end---
+
+// Product Slider Modal
+const productModal = document.querySelector(".product-slider-modal");
+
+document.querySelector(".product-slider .swiper-wrapper")
+  ?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    productModal?.classList.add("active");
+  });
+
+document.querySelector(".product-slider-modal-close")
+  ?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    productModal?.classList.remove("active");
+  });
+
+productModal?.addEventListener("click", () => {
+  productModal.classList.remove("active");
+});
+
+
+// Size Chart Sidebar
+const sizeSidebar = document.querySelector(".size-chart-sidebar");
+const sizeSidebarInner = document.querySelector(".size-chart-sidebar-inner");
+
+const toggleSizeChart = (open, e) => {
+  e?.stopPropagation();
+
+  sizeSidebar?.classList.toggle("active", open);
+  sizeSidebarInner?.classList.toggle("active", open);
+  document.body.classList.toggle("active", open);
+};
+
+document.querySelector(".size-sidebar-btn")
+  ?.addEventListener("click", (e) => toggleSizeChart(true, e));
+
+document.querySelector(".size-chart-sidebar-close-window-btn")
+  ?.addEventListener("click", (e) => toggleSizeChart(false, e));
+
+document.querySelector(".size-chart-close-btn")
+  ?.addEventListener("click", (e) => toggleSizeChart(false, e));
+
+// Footer dropdown responsive accordion js start --
+document.addEventListener("DOMContentLoaded", () => {
+  const breakpoint = window.matchMedia("(max-width: 992px)");
+  const items = document.querySelectorAll(".footer-item");
+
+  const closeItem = (item) => {
+    const content = item.querySelector(".footer-content");
+    if (!content) return;
+
+    item.classList.remove("active");
+    content.style.maxHeight = "0px";
+  };
+
+  const openItem = (item) => {
+    const content = item.querySelector(".footer-content");
+    if (!content) return;
+
+    item.classList.add("active");
+    content.style.maxHeight = `${content.scrollHeight}px`;
+  };
+
+  const setupAccordion = () => {
+    items.forEach((item) => {
+      const title = item.querySelector(".footer-item-title");
+      const content = item.querySelector(".footer-content");
+
+      if (!title || !content) return;
+
+      // Remove previous inline state
+      title.onclick = null;
+
+      if (!breakpoint.matches) {
+        item.classList.remove("active");
+        content.style.maxHeight = "";
+        return;
+      }
+
+      // Mobile: close initially
+      closeItem(item);
+
+      title.onclick = () => {
+        const isActive = item.classList.contains("active");
+
+        // Close others
+        items.forEach((otherItem) => {
+          if (otherItem !== item) {
+            closeItem(otherItem);
+          }
+        });
+
+        // Toggle current
+        isActive ? closeItem(item) : openItem(item);
+      };
+    });
+  };
+
+  setupAccordion();
+
+  // Handle responsive resize
+  breakpoint.addEventListener("change", setupAccordion);
+});
+// Footer dropdown responsive accordion js end --
