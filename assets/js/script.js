@@ -434,6 +434,60 @@ var swiper = new Swiper(".image-category-slider", {
 });
 // image-category-slider js end--
 
+// collection-category-slider js start--
+var swiper = new Swiper(".collection-category-slider", {
+  slidesPerView: "auto",
+  spaceBetween: 20,
+  grabCursor: true,
+  loop: false,
+  breakpoints: {
+    1: {
+      spaceBetween: 10,
+    },
+    576: {
+      spaceBetween: 20,
+    },
+  },
+});
+// collection-category-slider js end--
+
+// collection filter js start---
+document.addEventListener("DOMContentLoaded", () => {
+  const sidebar = document.querySelector(".collection-filter");
+
+  // Filter sidebar
+  document
+    .querySelectorAll(
+      ".filter-open-btn, .filter-window-close-btn, .filter-close-btn",
+    )
+    .forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const open = btn.classList.contains("filter-open-btn");
+
+        sidebar?.classList.toggle("active", open);
+        document.body.classList.toggle("active", open);
+      });
+    });
+
+  // Accordion
+  document.querySelectorAll(".accordion-toggle-btn").forEach((btn) => {
+    const content = btn.nextElementSibling;
+
+    content.style.maxHeight = `${content.scrollHeight}px`;
+    btn.parentElement.classList.add("active");
+
+    btn.addEventListener("click", () => {
+      btn.parentElement.classList.toggle("active");
+
+      content.style.maxHeight = content.style.maxHeight
+        ? null
+        : `${content.scrollHeight}px`;
+    });
+  });
+});
+// collection filter js end---
+
 // Footer dropdown responsive accordion js start --
 document.addEventListener("DOMContentLoaded", () => {
   const breakpoint = window.matchMedia("(max-width: 992px)");
@@ -497,43 +551,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // Footer dropdown responsive accordion js end --
 
-// text-grid js start---
-// document.addEventListener("DOMContentLoaded", () => {
-//   const mq = window.matchMedia("(max-width:575px)");
-//   const items = [...document.querySelectorAll(".text-grids .text-grid")];
-//   const btn = document.getElementById("textGridToggleBtn");
-//   function update(reset = true) {
-//     if (!btn) return;
-//     if (!mq.matches) {
-//       items.forEach((i) => (i.style.display = ""));
-//       btn.style.display = "none";
-//       btn.dataset.expanded = "false";
-//       return;
-//     }
-//     btn.style.display = "inline-flex";
-//     const expanded = btn.dataset.expanded === "true";
-//     items.forEach((el, idx) => {
-//       el.style.display = expanded || idx < 3 ? "flex" : "none";
-//     });
-//     btn.textContent = expanded ? "Load Less" : "Load More";
-//   }
-//   btn?.addEventListener("click", () => {
-//     btn.dataset.expanded = btn.dataset.expanded === "true" ? "false" : "true";
-//     update(false);
-//     if (btn.dataset.expanded !== "true") {
-//       document
-//         .querySelector(".text-grid-section")
-//         .scrollIntoView({ behavior: "smooth", block: "start" });
-//     }
-//   });
-//   mq.addEventListener("change", () => {
-//     btn.dataset.expanded = "false";
-//     update();
-//   });
-//   update();
-// });
-// text-grid js end---
-
 // community-review popup js start--
 (function () {
   const items = document.querySelectorAll(".community-review-item");
@@ -542,15 +559,27 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!popup || !items.length) return;
 
   const slides = [...popup.querySelectorAll(".community-review-popup-slide")];
-  const videos = slides.map((slide) => slide.querySelector(".community-review-popup-video"));
-  const progressBars = [...popup.querySelectorAll(".community-review-popup-progress-bar")];
+  const videos = slides.map((slide) =>
+    slide.querySelector(".community-review-popup-video"),
+  );
+  const progressBars = [
+    ...popup.querySelectorAll(".community-review-popup-progress-bar"),
+  ];
   const prevBtn = popup.querySelector(".community-review-popup-nav-btn.prev");
   const nextBtn = popup.querySelector(".community-review-popup-nav-btn.next");
   const muteBtn = popup.querySelector(".community-review-popup-mute-btn");
-  const productImg = popup.querySelector(".community-review-popup-product-img img");
-  const productTitle = popup.querySelector(".community-review-popup-product-title");
-  const productPrice = popup.querySelector(".community-review-popup-product-price .curr");
-  const productPrevPrice = popup.querySelector(".community-review-popup-product-price .prev");
+  const productImg = popup.querySelector(
+    ".community-review-popup-product-img img",
+  );
+  const productTitle = popup.querySelector(
+    ".community-review-popup-product-title",
+  );
+  const productPrice = popup.querySelector(
+    ".community-review-popup-product-price .curr",
+  );
+  const productPrevPrice = popup.querySelector(
+    ".community-review-popup-product-price .prev",
+  );
 
   let current = 0;
   let muted = true;

@@ -24,19 +24,15 @@
 }
 
 .card-badge {
-    /* position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 2; */
     color: var(--white);
     font-family: var(--paragraph-font);
     font-size: 12px;
     font-weight: 500;
     line-height: 1;
-    padding: 5px 8px;
+    padding: 3px 5px;
     background-color: var(--card-badge-bg);
     text-transform: uppercase;
-    border-radius: 50px;
+    border-radius: 4px;
 }
 
 .product-card .card-image-wrap:before {
@@ -97,8 +93,10 @@
     padding: 14px 8px;
 }
 
-.product-card .card-content .card-title-wrap{
+.product-card .card-content .card-title-wrap {
     height: 40px;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 .product-card .card-content .card-title {
@@ -118,14 +116,15 @@
 
 .product-card .card-content .card-price-wrap {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 5px;
     align-items: center;
     margin: 10px 0 0 0;
 }
 
 .product-card .card-content .card-price-wrap .latest-price {
     font-family: var(--paragraph-font);
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 1;
     text-transform: uppercase;
@@ -146,7 +145,7 @@
     color: var(--muted);
 }
 
-.card-btn{
+.card-btn {
     margin-top: 16px;
     display: flex;
 }
@@ -164,28 +163,31 @@
     background-color: var(--white);
     color: var(--black);
 }
+
 /* product-card css end */
-
-@media only screen and (max-width: 767px) {
-
-    /* product-card css start */
-    .card-badge {
-        font-size: 10px;
-        top: 10px;
-        left: 10px;
-        padding: 5px;
-    }
-
-    /* product-card css end */
-}
 
 @media only screen and (max-width: 575px) {
 
     /* product-card css start */
+    .product-card .card-content .card-title {
+        font-size: 14px;
+        line-height: 17px;
+    }
 
     .product-card .card-content .card-price-wrap {
-        gap: 10px;
         margin: 5px 0 0 0;
+    }
+
+    .product-card .card-content .card-price-wrap .latest-price {
+        font-size: 14px;
+    }
+
+    .product-card .card-content .card-price-wrap .previous-price {
+        font-size: 12px;
+    }
+
+    .product-card .card-content {
+        padding: 10px 8px;
     }
 
     .card-btn .btn {

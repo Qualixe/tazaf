@@ -64,6 +64,11 @@
 
 /* count-down css end */
 
+.swiper.card-slider .swiper-wrapper {
+    width: fit-content;
+    margin: 0 auto;
+}
+
 .card-slider-section-btn {
     margin-top: 24px;
     display: flex;
