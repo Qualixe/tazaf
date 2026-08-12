@@ -1,4 +1,8 @@
 /* category-section css start */
+.category-section.collection-category {
+    padding-top: 16px;
+}
+
 .category-section-heading {
     display: flex;
     align-items: center;

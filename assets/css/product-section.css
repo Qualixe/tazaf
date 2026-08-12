@@ -176,6 +176,7 @@
 
 .product-content-area {
     width: fit-content;
+    max-width: 30%;
 }
 
 .product-content-inner {
@@ -197,7 +198,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 10px 0 0 0;
+    margin: 0 0 10px 0;
 }
 
 .product-rattings .content-left {
@@ -285,7 +286,7 @@
 
 .product-varient {
     margin: 20px 0 0 0;
-    width: fit-content;
+    width: 100%;
 }
 
 .product-varient-title-wrap {
@@ -311,6 +312,10 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
 }
+
+/* .product-varient-field-wrap.product-color-wrap {
+    grid-template-columns: repeat(6, 1fr);
+} */
 
 .product-varient-field-wrap.product-size {
     display: flex;
@@ -389,9 +394,297 @@
     text-decoration: line-through;
 }
 
+/*  product-color varient css start */
+.product-varient-input-field.product-color .product-varient-label {
+    padding: 0;
+    border: 2px dotted var(--brand-color);
+    position: relative;
+    border-radius: 8px;
+}
+
+.product-varient-input-field.product-color .product-varient-label::before {
+    content: '';
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 40%;
+    width: 12px;
+    height: 30px;
+    border: solid var(--brand-color);
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg) translate(-50%, -50%);
+    -webkit-transform: rotate(45deg) translate(-50%, -50%);
+    -moz-transform: rotate(45deg) translate(-50%, -50%);
+    -ms-transform: rotate(45deg) translate(-50%, -50%);
+    -o-transform: rotate(45deg) translate(-50%, -50%);
+}
+
+.product-varient-input-field.product-color p {
+    text-align: center;
+    font-size: 12px;
+    margin: 5px 0 0 0;
+    font-weight: 600;
+    line-height: 16px;
+    text-transform: capitalize;
+}
+
+.product-varient-input-field.product-color input[type="radio"]:checked~.product-varient-label {
+    border: 2px solid var(--brand-color);
+    background-color: var(--brand-color);
+}
+
+.product-varient-input-field.product-color input[type="radio"]:checked~.product-varient-label::before {
+    display: block;
+}
+
+/* color varient css end */
+
+/* product plan css start */
+
+.plan-container {
+    margin: 50px auto 0;
+}
+
+.product-plan-heading {
+    color: rgb(var(--muted), 0.5);
+    font-size: 16px;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+
+.plan-item {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.plan-item:last-child {
+    margin-bottom: 0;
+}
+
+.plan-item input {
+    position: absolute;
+    left: 18px;
+    top: 22px;
+    appearance: auto;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+    width: auto;
+    height: auto;
+    z-index: 1;
+}
+
+label.plan-label {
+    padding: 15px;
+    border: 2px solid var(--black);
+    display: block;
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all ease .3s;
+    background: var(--item-bg3);
+}
+
+.subscription-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 25px;
+}
+
+.select-plan-btn {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.select-plan-input {
+    cursor: pointer;
+}
+
+.select-plan-label {
+    padding-left: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.subscription-savings {
+    color: var(--white);
+    padding: 4px 10px;
+    background-color: var(--brand-color);
+    border-radius: 50px;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 400;
+    text-wrap-mode: nowrap;
+}
+
+.subscription-fee {
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.previous-subscription-fee {
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: line-through;
+    opacity: 0.4;
+    margin-right: 7px;
+}
+
+.subscription-fee-text {
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 400;
+    display: block;
+}
+
+.select-wrapper {
+    display: none;
+    background-color: var(--item-bg3);
+    margin-top: 15px;
+    position: relative;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 15px;
+    top: 9px;
+    display: flex;
+    z-index: 1;
+}
+
+.select-delivery-time {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: 400;
+    outline: none;
+    border: 1px solid var(--brand-color);
+    z-index: 2;
+    position: relative;
+    cursor: pointer;
+    border-radius: 6px;
+    text-transform: capitalize;
+}
+
+#select_delivery_time label {
+    background-color: var(--white);
+}
+
+.plan-item select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.subscription-offer {
+    margin-top: 15px;
+    display: none;
+}
+
+.subscription-offer-heading {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    /* color: var(--brand-color); */
+    margin: 0 0 8px 0;
+}
+
+.subscription-offer-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3px;
+}
+
+.subscription-offer-list-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.subscription-offer-list-item::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    width: 14px;
+    height: 14px;
+    background-color: var(--brand-color);
+    border-radius: 50%;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/check.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.offer-list-text {
+    color: var(--black);
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.offer-list-text span {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.one-time-purchase {
+    margin-top: 10px;
+}
+
+.one-time-purchase-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 25px;
+}
+
+input[type=radio]#subscription {
+    accent-color: var(--brand-color);
+}
+
+input[type=radio]#one_time_purchase {
+    accent-color: var(--brand-color);
+}
+
+.plan-item input[type=radio]#subscription:checked,
+.plan-item input[type=radio]#one_time_purchase:checked {
+    accent-color: var(--brand-color);
+}
+
+.plan-item input:checked+label {
+    background-color: var(--item-bg);
+    border-color: var(--brand-color);
+    cursor: auto;
+}
+
+.plan-item input:checked+label .select-wrapper,
+.plan-item input:checked+label .subscription-offer {
+    display: block;
+    transition: ease-in-out;
+}
+
+/* product plan css end */
+
 .product-btn-wrap {
     margin: 20px 0 0 0;
-    max-width: 410px;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -513,9 +806,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-    height: 100vh;
+    height: 100dvh;
     z-index: 99999;
     transition: 300ms;
     opacity: 0;
