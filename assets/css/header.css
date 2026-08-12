@@ -3,7 +3,6 @@
     padding-top: 10px;
     background: var(--white);
     box-shadow: 0 2px 4px #f2f2f2;
-    /* overflow: hidden; */
 }
 
 .navbar {
@@ -420,17 +419,16 @@
     left: -250%;
 }
 
-/* .navbar-link-area::before {
+.navbar-link-area::before {
     position: absolute;
     z-index: 1;
     content: "";
-    width: calc (100dvw + (100dvw - 1320px));
+    width: 100dvw;
     height: 1px;
     background: var(--border-color2);
     top: 0;
-    left: calc(1320px - 100dvw);
-    width: calc(100dvw + (100dvw - 1320px));
-} */
+    left: calc((100% - 100dvw)/2);
+}
 
 .navbar-links {
     display: flex;
@@ -818,6 +816,12 @@
 /* mobile-menu css end */
 
 /* header css end */
+
+/* @media only screen and (max-width: 1320px) {
+    .navbar-link-area::before {
+        left: calc(-20px + (1320px - 100dvw) / 2);
+    }
+} */
 
 @media only screen and (max-width: 992px) {
 

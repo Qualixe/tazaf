@@ -61,6 +61,8 @@
     --item-bg2: #f5f1f0;
     --item-bg3: #f5f5f5;
     --muted: #6c6c6c;
+    --color-green: #008000;
+    --color-pink: #bc406d;
 
     /* font family */
     --heading-font: "Outfit", serif;
@@ -75,7 +77,7 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 body {
@@ -252,26 +254,6 @@ button {
 /* input css end */
 
 /* cart-drawer css start */
-.size-sidebar-btn {
-    text-transform: capitalize;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--paragraph-text-color);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    text-wrap-mode: nowrap;
-    border-bottom: 1px solid var(--black);
-}
-
-.size-sidebar-btn svg {
-    width: 20px;
-}
-
-.size-sidebar-btn svg path {
-    fill: var(--black);
-}
-
 .cart-drawer {
     position: fixed;
     top: 0;
