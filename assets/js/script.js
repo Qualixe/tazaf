@@ -567,6 +567,22 @@ var swiper = new Swiper(".image-category-slider", {
 })();
 // community-review popup js end--
 
+// review-tab-section js start--
+document.querySelectorAll(".review-tab-nav-item").forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const target = tab.dataset.reviewTab;
+
+    document
+      .querySelectorAll(".review-tab-nav-item")
+      .forEach((el) => el.classList.toggle("active", el === tab));
+
+    document
+      .querySelectorAll(".review-tab-panel")
+      .forEach((panel) => panel.classList.toggle("active", panel.id === target));
+  });
+});
+// review-tab-section js end--
+
 // collection-category-slider js start--
 var swiper = new Swiper(".collection-category-slider", {
   slidesPerView: "auto",
@@ -675,13 +691,15 @@ var swiper2 = new Swiper(".product-slider", {
 // Product Slider Modal
 const productModal = document.querySelector(".product-slider-modal");
 
-document.querySelector(".product-slider .swiper-wrapper")
+document
+  .querySelector(".product-slider .swiper-wrapper")
   ?.addEventListener("click", (e) => {
     e.stopPropagation();
     productModal?.classList.add("active");
   });
 
-document.querySelector(".product-slider-modal-close")
+document
+  .querySelector(".product-slider-modal-close")
   ?.addEventListener("click", (e) => {
     e.stopPropagation();
     productModal?.classList.remove("active");
@@ -690,7 +708,6 @@ document.querySelector(".product-slider-modal-close")
 productModal?.addEventListener("click", () => {
   productModal.classList.remove("active");
 });
-
 
 // Size Chart Sidebar
 const sizeSidebar = document.querySelector(".size-chart-sidebar");
@@ -704,15 +721,41 @@ const toggleSizeChart = (open, e) => {
   document.body.classList.toggle("active", open);
 };
 
-document.querySelector(".size-sidebar-btn")
+document
+  .querySelector(".size-sidebar-btn")
   ?.addEventListener("click", (e) => toggleSizeChart(true, e));
 
-document.querySelector(".size-chart-sidebar-close-window-btn")
+document
+  .querySelector(".size-chart-sidebar-close-window-btn")
   ?.addEventListener("click", (e) => toggleSizeChart(false, e));
 
-document.querySelector(".size-chart-close-btn")
+document
+  .querySelector(".size-chart-close-btn")
   ?.addEventListener("click", (e) => toggleSizeChart(false, e));
 
+// product accordion--
+document.querySelectorAll(".product-accordion-toggle-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const item = btn.parentElement;
+    const content = btn.nextElementSibling;
+
+    document
+      .querySelectorAll(".product-accordion-item.active")
+      .forEach((active) => {
+        if (active !== item) {
+          active.classList.remove("active");
+          active.querySelector(
+            ".product-accordion-item-content",
+          ).style.maxHeight = null;
+        }
+      });
+
+    item.classList.toggle("active");
+    content.style.maxHeight = item.classList.contains("active")
+      ? `${content.scrollHeight}px`
+      : null;
+  });
+});
 // Footer dropdown responsive accordion js start --
 document.addEventListener("DOMContentLoaded", () => {
   const breakpoint = window.matchMedia("(max-width: 992px)");

@@ -3,6 +3,10 @@
     padding-top: 16px;
 }
 
+.category-section.product-category.collection-category{
+    padding: 24px 0;
+}
+
 .category-section-heading {
     display: flex;
     align-items: center;
@@ -36,7 +40,7 @@
 }
 
 .swiper.collection-category-slider .swiper-slide {
-    width: 120px;
+    width: 127px;
 }
 
 .swiper.category-slider .swiper-wrapper {
