@@ -567,22 +567,6 @@ var swiper = new Swiper(".image-category-slider", {
 })();
 // community-review popup js end--
 
-// review-tab-section js start--
-document.querySelectorAll(".review-tab-nav-item").forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const target = tab.dataset.reviewTab;
-
-    document
-      .querySelectorAll(".review-tab-nav-item")
-      .forEach((el) => el.classList.toggle("active", el === tab));
-
-    document
-      .querySelectorAll(".review-tab-panel")
-      .forEach((panel) => panel.classList.toggle("active", panel.id === target));
-  });
-});
-// review-tab-section js end--
-
 // collection-category-slider js start--
 var swiper = new Swiper(".collection-category-slider", {
   slidesPerView: "auto",
@@ -734,28 +718,56 @@ document
   ?.addEventListener("click", (e) => toggleSizeChart(false, e));
 
 // product accordion--
-document.querySelectorAll(".product-accordion-toggle-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const item = btn.parentElement;
-    const content = btn.nextElementSibling;
+document.addEventListener("click", ({ target }) => {
+  const btn = target.closest(".product-accordion-toggle-btn");
+  if (!btn) return;
 
-    document
-      .querySelectorAll(".product-accordion-item.active")
-      .forEach((active) => {
-        if (active !== item) {
-          active.classList.remove("active");
-          active.querySelector(
-            ".product-accordion-item-content",
-          ).style.maxHeight = null;
-        }
-      });
+  const item = btn.closest(".product-accordion-item");
+  const content = btn.nextElementSibling;
+  const isOpen = item.classList.contains("active");
 
-    item.classList.toggle("active");
-    content.style.maxHeight = item.classList.contains("active")
-      ? `${content.scrollHeight}px`
-      : null;
+  document.querySelectorAll(".product-accordion-item.active").forEach((el) => {
+    el.classList.remove("active");
+    el.querySelector(".product-accordion-item-content").style.maxHeight = null;
   });
+
+  if (!isOpen) {
+    item.classList.add("active");
+    content.style.maxHeight = `${content.scrollHeight}px`;
+  }
 });
+
+// make it short, dinamic and production ready
+
+// review-tab-section js start--
+document.addEventListener("click", ({ target }) => {
+  const tab = target.closest(".review-tab-nav-item");
+  if (!tab) return;
+
+  const targetId = tab.dataset.reviewTab;
+
+  document
+    .querySelectorAll(".review-tab-nav-item, .review-tab-panel")
+    .forEach((el) => el.classList.toggle(
+      "active",
+      el === tab || el.id === targetId
+    ));
+});
+// review-tab-section js end--
+
+// Sticky Add to Cart
+(() => {
+  const stickyCart = document.querySelector(".sticky-add-to-cart-section");
+  if (!stickyCart) return;
+
+  const updateStickyCart = () => {
+    stickyCart.classList.toggle("fixed", window.scrollY > 300);
+  };
+
+  updateStickyCart();
+  window.addEventListener("scroll", updateStickyCart, { passive: true });
+})();
+
 // Footer dropdown responsive accordion js start --
 document.addEventListener("DOMContentLoaded", () => {
   const breakpoint = window.matchMedia("(max-width: 992px)");

@@ -23,6 +23,18 @@
     width: min(520px, 100%);
     max-width: 520px;
     transition: all ease .3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navbar-search .navbar-icon {
+    display: none;
+}
+
+.navbar-search .navbar-icon .cart-count {
+    top: 0px;
+    right: 0px;
 }
 
 .search-open {
@@ -847,6 +859,10 @@
         padding: 10px 16px;
         background: var(--white);
         box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
+    }
+
+    .header.home-nav .navbar-search .navbar-icon {
+        display: block;
     }
 
     .navbar {

@@ -734,6 +734,7 @@ button {
 .cart-drawer-checkout-btn-wrap .btn {
     background: var(--brand-color);
     border-color: var(--brand-color);
+    color: var(--white);
 }
 
 .cart-drawer-checkout-btn-wrap .btn:hover {
