@@ -228,15 +228,15 @@ document
 
 // cart-drawer slider js start--
 var swiper = new Swiper(".cart-drawer-slider", {
-  slidesPerView: 1.3,
-  spaceBetween: 16,
+  slidesPerView: 2.1,
+  spaceBetween: 5,
   grabCursor: true,
   loop: true,
-  speed: 1000,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
+  speed: 500,
+  // autoplay: {
+  //   delay: 2500,
+  //   disableOnInteraction: false,
+  // },
   navigation: {
     nextEl: ".cart-drawer-slider-btn-next",
     prevEl: ".cart-drawer-slider-btn-prev",
@@ -287,7 +287,11 @@ var swiper = new Swiper(".category-slider", {
   slidesPerView: "auto",
   spaceBetween: 10,
   grabCursor: true,
-  loop: false,
+  loop: true,
+  navigation: {
+    nextEl: ".category-button-next",
+    prevEl: ".category-button-prev",
+  },
 });
 // category js end--
 
@@ -385,6 +389,40 @@ var swiper = new Swiper(".card-slider", {
 });
 // card slider js end--
 
+// card slider js start--
+var swiper = new Swiper(".explore-slider", {
+  slidesPerView: 4.5,
+  centeredSlides: false,
+  spaceBetween: 10,
+  grabCursor: true,
+  loop: true,
+  speed: 500,
+  autoplay: false,
+  navigation: {
+    nextEl: ".explore-slider-button-next",
+    prevEl: ".explore-slider-button-prev",
+  },
+  breakpoints: {
+    1: {
+      slidesPerView: 2,
+      spaceBetween: 5,
+    },
+    576: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 10,
+    },
+    993: {
+      slidesPerView: 4.5,
+      spaceBetween: 10,
+    },
+  },
+});
+// card slider js end--
+
 // tab-section js start--
 document.querySelectorAll(".tab-section-nav-item").forEach((tab) => {
   tab.addEventListener("click", () => {
@@ -433,6 +471,34 @@ var swiper = new Swiper(".image-category-slider", {
   },
 });
 // image-category-slider js end--
+
+// shop-by-brand-slider js start--
+var swiper = new Swiper(".shop-by-brand-slider", {
+  slidesPerView: 5,
+  spaceBetween: 0,
+  grabCursor: true,
+  loop: true,
+  speed: 800,
+  navigation: {
+    nextEl: ".shop-by-brand-slider .swiper-button-next",
+    prevEl: ".shop-by-brand-slider .swiper-button-prev",
+  },
+  breakpoints: {
+    1: {
+      slidesPerView: 2,
+    },
+    576: {
+      slidesPerView: 3,
+    },
+    768: {
+      slidesPerView: 4,
+    },
+    993: {
+      slidesPerView: 5,
+    },
+  },
+});
+// shop-by-brand-slider js end--
 
 // community-review popup js start--
 (function () {
@@ -573,6 +639,10 @@ var swiper = new Swiper(".collection-category-slider", {
   spaceBetween: 20,
   grabCursor: true,
   loop: false,
+  navigation: {
+    nextEl: ".collection-category-button-next",
+    prevEl: ".collection-category-button-prev",
+  },
   breakpoints: {
     1: {
       spaceBetween: 10,
@@ -737,6 +807,16 @@ document.addEventListener("click", ({ target }) => {
   }
 });
 
+// open first product-accordion-item by default--
+document.querySelectorAll(".product-accordion-items").forEach((group) => {
+  const firstItem = group.querySelector(".product-accordion-item");
+  if (!firstItem) return;
+
+  firstItem.classList.add("active");
+  const content = firstItem.querySelector(".product-accordion-item-content");
+  content.style.maxHeight = `${content.scrollHeight}px`;
+});
+
 // make it short, dinamic and production ready
 
 // review-tab-section js start--
@@ -748,10 +828,9 @@ document.addEventListener("click", ({ target }) => {
 
   document
     .querySelectorAll(".review-tab-nav-item, .review-tab-panel")
-    .forEach((el) => el.classList.toggle(
-      "active",
-      el === tab || el.id === targetId
-    ));
+    .forEach((el) =>
+      el.classList.toggle("active", el === tab || el.id === targetId),
+    );
 });
 // review-tab-section js end--
 

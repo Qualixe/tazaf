@@ -1,7 +1,6 @@
-.collection-breadcrumb {
+.product-breadcrumb {
     padding: 12px;
     background: var(--border-color2);
-    margin-bottom: 16px;
 }
 
 .breadcrumb {

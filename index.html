@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="./assets/css/grid-banner-section2.css">
 	<link rel="stylesheet" href="./assets/css/tab-section.css">
 	<link rel="stylesheet" href="./assets/css/category-grid-section.css">
+	<link rel="stylesheet" href="./assets/css/shop-by-brand-section.css">
 	<link rel="stylesheet" href="./assets/css/card-slider-section.css">
 	<link rel="stylesheet" href="./assets/css/grid-banner-section.css">
 	<link rel="stylesheet" href="./assets/css/category-section.css">
@@ -42,10 +43,18 @@
 	<header class="header home-nav-active home-header">
 		<div class="container">
 			<nav class="navbar">
-				<div class="navbar-logo">
-					<a href="index.html">
-						<img src="./assets/images/tazaf-logo.png" alt="tazaf-logo">
-					</a>
+				<div class="navbar-left">
+					<button class="hamburger app-menu-open">
+						<svg width="25" height="15" viewBox="0 0 25 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M0.5 13.8333H24.5M0.5 7.16667H24.5M0.5 0.5H24.5" stroke="#16415F" stroke-linecap="round"
+								stroke-linejoin="round"></path>
+						</svg>
+					</button>
+					<div class="navbar-logo">
+						<a href="index.html">
+							<img src="./assets/images/tazaf-logo.png" alt="tazaf-logo">
+						</a>
+					</div>
 				</div>
 				<div class="navbar-search">
 					<button class="search-open navbar-search-open-btn">
@@ -259,6 +268,15 @@
 				</div>
 				<!-- search-bar popup end -->
 				<div class="navbar-icons">
+					<button class="navbar-icon navbar-search-open-btn">
+						<svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+							<path
+								d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
+								stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M17.5 17.5L13.875 13.875" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+								stroke-linejoin="round"></path>
+						</svg>
+					</button>
 					<a href="#!" class="navbar-icon">
 						<svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
 							<path d="M10 10.1A2.85 2.85 0 1 0 10 4.4a2.85 2.85 0 0 0 0 5.7Z" stroke="currentColor" stroke-width="1.4">
@@ -267,13 +285,6 @@
 								stroke-width="1.4" stroke-linecap="round"></path>
 						</svg>
 					</a>
-					<!-- <a href="#!" class="navbar-icon">
-						<svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-							<path
-								d="M10 16.4 9.1 15.58C5.7 12.5 3.5 10.5 3.5 8.02 3.5 6 5.08 4.4 7.12 4.4c1.16 0 2.28.54 2.88 1.4.6-.86 1.72-1.4 2.88-1.4C14.92 4.4 16.5 6 16.5 8.02c0 2.48-2.2 4.48-5.6 7.56l-.9.82Z"
-								stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
-						</svg>
-					</a> -->
 					<button class="navbar-icon cart-drawer-open">
 						<span class="cart-count">0</span>
 						<svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -1923,6 +1934,8 @@
 									</a>
 								</div>
 							</div>
+							<div class="swiper-button-prev category-button-prev"></div>
+							<div class="swiper-button-next category-button-next"></div>
 						</div>
 					</div>
 					<div class="category-slider-wrapper">
@@ -2019,6 +2032,8 @@
 									</a>
 								</div>
 							</div>
+							<div class="swiper-button-prev category-button-prev"></div>
+							<div class="swiper-button-next category-button-next"></div>
 						</div>
 					</div>
 				</div>
@@ -2111,6 +2126,17 @@
 							<div class="card-slider-item">
 								<div class="product-card card_hover">
 									<div class="card-image-wrap">
+										<div class="card-rattings">
+											<span class="icon">
+												<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="pdp-star-icon is-filled">
+													<path
+														d="M8 1.333l2.06 4.174 4.607.67-3.333 3.249.786 4.587L8 11.846l-4.12 2.167.787-4.587L1.333 6.177l4.607-.67L8 1.333Z"
+														fill="currentColor"></path>
+												</svg>
+											</span>
+											<span class="rattings-count">4.8</span>
+											<span class="rattings-number">(495 +)</span>
+										</div>
 										<div class="card-img">
 											<a class="main-img" href="product.html">
 												<img class="card_img" src="./assets/images/product-slider-img1.avif"
@@ -2142,6 +2168,17 @@
 							<div class="card-slider-item">
 								<div class="product-card card_hover">
 									<div class="card-image-wrap">
+										<div class="card-rattings">
+											<span class="icon">
+												<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="pdp-star-icon is-filled">
+													<path
+														d="M8 1.333l2.06 4.174 4.607.67-3.333 3.249.786 4.587L8 11.846l-4.12 2.167.787-4.587L1.333 6.177l4.607-.67L8 1.333Z"
+														fill="currentColor"></path>
+												</svg>
+											</span>
+											<span class="rattings-count">4.8</span>
+											<span class="rattings-number">(495 +)</span>
+										</div>
 										<div class="card-img">
 											<a class="main-img" href="product.html">
 												<img class="card_img" src="./assets/images/product-slider-img3.webp"
@@ -2173,6 +2210,17 @@
 							<div class="card-slider-item">
 								<div class="product-card card_hover">
 									<div class="card-image-wrap">
+										<div class="card-rattings">
+											<span class="icon">
+												<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="pdp-star-icon is-filled">
+													<path
+														d="M8 1.333l2.06 4.174 4.607.67-3.333 3.249.786 4.587L8 11.846l-4.12 2.167.787-4.587L1.333 6.177l4.607-.67L8 1.333Z"
+														fill="currentColor"></path>
+												</svg>
+											</span>
+											<span class="rattings-count">4.8</span>
+											<span class="rattings-number">(495 +)</span>
+										</div>
 										<div class="card-img">
 											<a class="main-img" href="product.html">
 												<img class="card_img" src="./assets/images/product-slider-img5.webp"
@@ -2204,6 +2252,17 @@
 							<div class="card-slider-item">
 								<div class="product-card card_hover">
 									<div class="card-image-wrap">
+										<div class="card-rattings">
+											<span class="icon">
+												<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="pdp-star-icon is-filled">
+													<path
+														d="M8 1.333l2.06 4.174 4.607.67-3.333 3.249.786 4.587L8 11.846l-4.12 2.167.787-4.587L1.333 6.177l4.607-.67L8 1.333Z"
+														fill="currentColor"></path>
+												</svg>
+											</span>
+											<span class="rattings-count">4.8</span>
+											<span class="rattings-number">(495 +)</span>
+										</div>
 										<div class="card-img">
 											<a class="main-img" href="product.html">
 												<img class="card_img" src="./assets/images/product-slider-img2.avif"
@@ -2235,6 +2294,17 @@
 							<div class="card-slider-item">
 								<div class="product-card card_hover">
 									<div class="card-image-wrap">
+										<div class="card-rattings">
+											<span class="icon">
+												<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="pdp-star-icon is-filled">
+													<path
+														d="M8 1.333l2.06 4.174 4.607.67-3.333 3.249.786 4.587L8 11.846l-4.12 2.167.787-4.587L1.333 6.177l4.607-.67L8 1.333Z"
+														fill="currentColor"></path>
+												</svg>
+											</span>
+											<span class="rattings-count">4.8</span>
+											<span class="rattings-number">(495 +)</span>
+										</div>
 										<div class="card-img">
 											<a class="main-img" href="product.html">
 												<img class="card_img" src="./assets/images/product-slider-img4.webp"
@@ -2266,6 +2336,17 @@
 							<div class="card-slider-item">
 								<div class="product-card card_hover">
 									<div class="card-image-wrap">
+										<div class="card-rattings">
+											<span class="icon">
+												<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="pdp-star-icon is-filled">
+													<path
+														d="M8 1.333l2.06 4.174 4.607.67-3.333 3.249.786 4.587L8 11.846l-4.12 2.167.787-4.587L1.333 6.177l4.607-.67L8 1.333Z"
+														fill="currentColor"></path>
+												</svg>
+											</span>
+											<span class="rattings-count">4.8</span>
+											<span class="rattings-number">(495 +)</span>
+										</div>
 										<div class="card-img">
 											<a class="main-img" href="product.html">
 												<img class="card_img" src="./assets/images/product-slider-img6.avif"
@@ -2306,7 +2387,7 @@
 		<section class="category-grid-section">
 			<div class="container">
 				<div class="category-grid-heading">
-					<h2 class="category-grid-title">The Wall Edit</>
+					<h2 class="category-grid-title">The Wall Edit</h2>
 				</div>
 				<div class="category-grid-items">
 					<a href="#!" class="category-grid-item">
@@ -2328,6 +2409,63 @@
 			</div>
 		</section>
 		<!-- category-grid-section end -->
+
+		<!-- shop-by-brand-section start -->
+		<section class="shop-by-brand-section">
+			<div class="container">
+				<div class="shop-by-brand-heading">
+					<h2 class="title">Shop By Brands</h2>
+					<a href="#!" class="shop-by-brand-all-link">Shop All Brands <span>›</span></a>
+				</div>
+				<div class="swiper shop-by-brand-slider">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<a href="#!" class="shop-by-brand-item">
+								<img src="./assets/images/product-brand-logo1.png" alt="Honeyraj">
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#!" class="shop-by-brand-item">
+								<p class="wordmark">Nestora</p>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#!" class="shop-by-brand-item">
+								<p class="wordmark">Urban Craft</p>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#!" class="shop-by-brand-item">
+								<p class="wordmark">Lumiere</p>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#!" class="shop-by-brand-item">
+								<p class="wordmark">Cozynest</p>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#!" class="shop-by-brand-item">
+								<p class="wordmark">Weavehome</p>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#!" class="shop-by-brand-item">
+								<p class="wordmark">Claymore</p>
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#!" class="shop-by-brand-item">
+								<p class="wordmark">Driftwood</p>
+							</a>
+						</div>
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+			</div>
+		</section>
+		<!-- shop-by-brand-section end -->
 
 		<!-- tab-section start -->
 		<section class="tab-section">
@@ -2684,7 +2822,7 @@
 		<section class="category-grid-section">
 			<div class="container">
 				<div class="category-grid-heading">
-					<h2 class="category-grid-title">Bed & Bath Essentials</>
+					<h2 class="category-grid-title">Bed &amp; Bath Essentials</h2>
 				</div>
 				<div class="category-grid-items">
 					<a href="#!" class="category-grid-item">
@@ -2867,6 +3005,8 @@
 									</a>
 								</div>
 							</div>
+							<div class="swiper-button-prev category-button-prev"></div>
+							<div class="swiper-button-next category-button-next"></div>
 						</div>
 					</div>
 					<div class="category-slider-wrapper">
@@ -2963,6 +3103,8 @@
 									</a>
 								</div>
 							</div>
+							<div class="swiper-button-prev category-button-prev"></div>
+							<div class="swiper-button-next category-button-next"></div>
 						</div>
 					</div>
 				</div>
@@ -3158,6 +3300,225 @@
 							</div>
 						</div>
 					</div>
+					<div class="cart-drawer-slider-area">
+						<div class="cart-drawer-slider-header">
+							<p class="cart-drawer-slider-title">66% of shoppers added these too...</p>
+							<div class="cart-drawer-slider-btn-wrap">
+								<div class="swiper-button-prev cart-drawer-slider-btn-prev"></div>
+								<div class="swiper-button-next cart-drawer-slider-btn-next"></div>
+							</div>
+						</div>
+						<div class="swiper cart-drawer-slider">
+							<div class="swiper-wrapper">
+								<!-- <div class="swiper-slide">
+									<div class="cart-drawer-slider-item">
+										<div class="img">
+											<img src="./assets/images/cart-drawer-img1.jpg" alt="cart-drawer-img1.jpg">
+										</div>
+										<div class="content">
+											<a href="#!" class="title">Glarvest Black Rice 1 Kg</a>
+											<p class="price">৳200.00</p>
+											<button class="item-btn">
+												+ add
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="cart-drawer-slider-item">
+										<div class="img">
+											<img src="./assets/images/cart-drawer-img1.jpg" alt="cart-drawer-img1.jpg">
+										</div>
+										<div class="content">
+											<a href="#!" class="title">Glarvest Black Rice 1 Kg</a>
+											<p class="price">৳200.00</p>
+											<button class="item-btn">
+												+ add
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="cart-drawer-slider-item">
+										<div class="img">
+											<img src="./assets/images/cart-drawer-img1.jpg" alt="cart-drawer-img1.jpg">
+										</div>
+										<div class="content">
+											<a href="#!" class="title">Glarvest Black Rice 1 Kg</a>
+											<p class="price">৳200.00</p>
+											<button class="item-btn">
+												+ add
+											</button>
+										</div>
+									</div>
+								</div> -->
+								<div class="swiper-slide">
+									<div class="cart-drawer-slider-item">
+										<div class="product-card card_hover">
+											<div class="card-image-wrap">
+												<div class="card-rattings">
+													<span class="icon">
+														<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="pdp-star-icon is-filled">
+															<path
+																d="M8 1.333l2.06 4.174 4.607.67-3.333 3.249.786 4.587L8 11.846l-4.12 2.167.787-4.587L1.333 6.177l4.607-.67L8 1.333Z"
+																fill="currentColor"></path>
+														</svg>
+													</span>
+													<span class="rattings-count">4.8</span>
+													<span class="rattings-number">(495 +)</span>
+												</div>
+												<div class="card-img">
+													<a class="main-img" href="product.html">
+														<img class="card_img" src="./assets/images/product-slider-img1.avif"
+															alt="product-slider-img1.avif">
+													</a>
+													<a class="hover-img" href="product.html">
+														<img class="card_hover_img" src="./assets/images/product-slider-img2.avif"
+															alt="product-slider-img2.avif">
+													</a>
+												</div>
+											</div>
+											<div class="card-content">
+												<div class="card-title-wrap">
+													<a href="product.html" class="card-title">Orthotics Heel Protector</a>
+												</div>
+												<div class="card-price-wrap">
+													<p class="latest-price">tk1870</p>
+													<p class="previous-price">tk2200</p>
+												</div>
+												<div class="card-btn">
+													<a href="#!" class="btn">add</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="cart-drawer-slider-item">
+										<div class="product-card card_hover">
+											<div class="card-image-wrap">
+												<div class="card-rattings">
+													<span class="icon">
+														<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="pdp-star-icon is-filled">
+															<path
+																d="M8 1.333l2.06 4.174 4.607.67-3.333 3.249.786 4.587L8 11.846l-4.12 2.167.787-4.587L1.333 6.177l4.607-.67L8 1.333Z"
+																fill="currentColor"></path>
+														</svg>
+													</span>
+													<span class="rattings-count">4.8</span>
+													<span class="rattings-number">(495 +)</span>
+												</div>
+												<div class="card-img">
+													<a class="main-img" href="product.html">
+														<img class="card_img" src="./assets/images/product-slider-img3.webp"
+															alt="product-slider-img3.webp">
+													</a>
+													<a class="hover-img" href="product.html">
+														<img class="card_hover_img" src="./assets/images/product-slider-img4.webp"
+															alt="product-slider-img4.avif">
+													</a>
+												</div>
+											</div>
+											<div class="card-content">
+												<div class="card-title-wrap">
+													<a href="product.html" class="card-title">tazaf Cloud Comfort Arch Support Slippers</a>
+												</div>
+												<div class="card-price-wrap">
+													<p class="latest-price">tk1870</p>
+													<p class="previous-price">tk2200</p>
+												</div>
+												<div class="card-btn">
+													<a href="#!" class="btn">add</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="cart-drawer-slider-item">
+										<div class="product-card card_hover">
+											<div class="card-image-wrap">
+												<div class="card-rattings">
+													<span class="icon">
+														<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="pdp-star-icon is-filled">
+															<path
+																d="M8 1.333l2.06 4.174 4.607.67-3.333 3.249.786 4.587L8 11.846l-4.12 2.167.787-4.587L1.333 6.177l4.607-.67L8 1.333Z"
+																fill="currentColor"></path>
+														</svg>
+													</span>
+													<span class="rattings-count">4.8</span>
+													<span class="rattings-number">(495 +)</span>
+												</div>
+												<div class="card-img">
+													<a class="main-img" href="product.html">
+														<img class="card_img" src="./assets/images/product-slider-img5.webp"
+															alt="product-slider-img5.webp">
+													</a>
+													<a class="hover-img" href="product.html">
+														<img class="card_hover_img" src="./assets/images/product-slider-img6.avif"
+															alt="product-slider-img6.avif">
+													</a>
+												</div>
+											</div>
+											<div class="card-content">
+												<div class="card-title-wrap">
+													<a href="product.html" class="card-title">Tazaf Men's Comfort Dual Strap Sandals</a>
+												</div>
+												<div class="card-price-wrap">
+													<p class="latest-price">tk1870</p>
+													<p class="previous-price">tk2200</p>
+												</div>
+												<div class="card-btn">
+													<a href="#!" class="btn">add</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="cart-drawer-slider-item">
+										<div class="product-card card_hover">
+											<div class="card-image-wrap">
+												<div class="card-rattings">
+													<span class="icon">
+														<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class="pdp-star-icon is-filled">
+															<path
+																d="M8 1.333l2.06 4.174 4.607.67-3.333 3.249.786 4.587L8 11.846l-4.12 2.167.787-4.587L1.333 6.177l4.607-.67L8 1.333Z"
+																fill="currentColor"></path>
+														</svg>
+													</span>
+													<span class="rattings-count">4.8</span>
+													<span class="rattings-number">(495 +)</span>
+												</div>
+												<div class="card-img">
+													<a class="main-img" href="product.html">
+														<img class="card_img" src="./assets/images/product-slider-img2.avif"
+															alt="product-slider-img2.avif">
+													</a>
+													<a class="hover-img" href="product.html">
+														<img class="card_hover_img" src="./assets/images/product-slider-img1.avif"
+															alt="product-slider-img1.avif">
+													</a>
+												</div>
+											</div>
+											<div class="card-content">
+												<div class="card-title-wrap">
+													<a href="product.html" class="card-title">tazaf Orthotics Posture Corrector Pro </a>
+												</div>
+												<div class="card-price-wrap">
+													<p class="latest-price">tk1870</p>
+													<p class="previous-price">tk2200</p>
+												</div>
+												<div class="card-btn">
+													<a href="#!" class="btn">add</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="cart-drawer-empty">
 					<div class="cart-drawer-empty-text">
@@ -3166,61 +3527,6 @@
 					</div>
 				</div>
 				<div class="cart-drawer-footer">
-					<div class="cart-drawer-slider-area">
-						<div class="cart-drawer-slider-header">
-							<p class="cart-drawer-slider-title">you may also like</p>
-							<div class="cart-drawer-slider-btn-wrap">
-								<div class="swiper-button-prev cart-drawer-slider-btn-prev"></div>
-								<div class="swiper-button-next cart-drawer-slider-btn-next"></div>
-							</div>
-						</div>
-						<div class="swiper cart-drawer-slider">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<div class="cart-drawer-slider-item">
-										<div class="img">
-											<img src="./assets/images/cart-drawer-img1.jpg" alt="cart-drawer-img1.jpg">
-										</div>
-										<div class="content">
-											<a href="#!" class="title">Glarvest Black Rice 1 Kg</a>
-											<p class="price">৳200.00</p>
-											<button class="item-btn">
-												+ add
-											</button>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="cart-drawer-slider-item">
-										<div class="img">
-											<img src="./assets/images/cart-drawer-img1.jpg" alt="cart-drawer-img1.jpg">
-										</div>
-										<div class="content">
-											<a href="#!" class="title">Glarvest Black Rice 1 Kg</a>
-											<p class="price">৳200.00</p>
-											<button class="item-btn">
-												+ add
-											</button>
-										</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="cart-drawer-slider-item">
-										<div class="img">
-											<img src="./assets/images/cart-drawer-img1.jpg" alt="cart-drawer-img1.jpg">
-										</div>
-										<div class="content">
-											<a href="#!" class="title">Glarvest Black Rice 1 Kg</a>
-											<p class="price">৳200.00</p>
-											<button class="item-btn">
-												+ add
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="cart-drawer-total-wrap">
 						<p class="cart-drawer-total-title">total</p>
 						<p class="cart-drawer-total-price">$72.00 USD</p>
@@ -3546,7 +3852,7 @@
 							<li><strong>phone:</strong><a href="#">1-833-428-8824</a></li>
 							<li><strong>Email:</strong><a href="#">info@tazif.com</a></li>
 							<li>
-								<p href="#">Open 24 Hours a Day, 7 Days a week</>
+								<p>Open 24 Hours a Day, 7 Days a week</p>
 							</li>
 						</ul>
 						<ul class="footer-icons">

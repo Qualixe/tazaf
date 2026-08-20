@@ -130,62 +130,53 @@
     max-width: 450px;
 }
 
+.product-rattings {
+    border: 1px solid var(--border-color2);
+    padding: 7px;
+    background-color: var(--white);
+    text-transform: capitalize;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    width: fit-content;
+    margin-bottom: 10px;
+    transition: all ease .3s;
+}
+
+.product-rattings:hover {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+}
+
+.product-rattings span {
+    display: flex;
+}
+
+.product-rattings .rattings-count {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    color: var(--black);
+}
+
+.product-rattings .rattings-number {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    color: var(--muted);
+}
+
+.product-rattings .icon svg {
+    color: var(--brand-color);
+    width: 16px;
+    height: 16px;
+}
+
 .product-title {
     font-weight: 500;
     text-transform: capitalize;
     font-size: 24px;
     line-height: 30px;
-}
-
-.product-rattings {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0 0 5px 0;
-}
-
-.product-rattings .content-left {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.product-rattings .content-left .icon {
-    display: flex;
-}
-
-.product-rattings .content-left .icon svg {
-    width: 70px;
-}
-
-.product-rattings .content-left .icon svg path {
-    fill: var(--brand-color);
-}
-
-.product-rattings .content-left .review-count {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 150%;
-    text-transform: capitalize;
-    color: var(--black);
-}
-
-.product-rattings .devider {
-    font-weight: 500;
-    font-size: 14px;
-    color: var(--paragraph-text-color);
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: fit-content;
-}
-
-.rattings-info p {
-    font-weight: 500;
-    line-height: 150%;
-    text-transform: capitalize;
-    font-size: 14px;
 }
 
 .product-price-wrap {
@@ -486,6 +477,83 @@ label.bundle-label {
 }
 
 /* product bundle css end */
+
+/* product-qty */
+.product-quantity-wrap {
+    margin: 20px 0 0 0;
+    width: 100%;
+}
+
+.product-quantity-title {
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.product-quantity {
+    margin: 0;
+    max-width: 168px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    color: var(--black);
+    width: 100%;
+    height: 42px;
+    border: 1px solid var(--brand-color);
+    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-quantity .quantity-increase,
+.product-quantity .quantity-decrease {
+    border: none;
+    border-radius: 0;
+    background: var(--item-bg);
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease .3s;
+}
+
+.product-quantity .quantity-increase:hover,
+.product-quantity .quantity-decrease:hover {
+    background: var(--brand-color);
+}
+
+.product-quantity .quantity-increase svg path,
+.product-quantity .quantity-decrease svg path {
+    transition: all ease .3s;
+}
+
+.product-quantity .quantity-increase:hover svg path,
+.product-quantity .quantity-decrease:hover svg path {
+    stroke: var(--white);
+}
+
+.product-quantity .quantity-count {
+    max-width: 80px;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--black);
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    border: none;
+    line-height: 1;
+    padding: 2px;
+    background: var(--item-bg);
+    border-radius: 5px;
+}
 
 .product-btn-wrap {
     margin: 20px 0 0 0;
@@ -968,11 +1036,6 @@ label.bundle-label {
         border-radius: 0;
     }
 
-    .swiper.product-slider .swiper-button-prev,
-    .swiper.product-slider .swiper-button-next {
-        display: none;
-    }
-
     .product-content-area {
         width: 100%;
         padding: 0 16px;
@@ -1002,6 +1065,19 @@ label.bundle-label {
 @media only screen and (max-width: 575px) {
 
     /* product section css start */
+    .swiper.product-slider .swiper-button-next {
+        right: 20px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .swiper.product-slider .swiper-button-prev {
+        left: 20px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+
     .product-btn-wrap .btn {
         padding: 10px 5px;
     }

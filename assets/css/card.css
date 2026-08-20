@@ -23,6 +23,43 @@
     border-radius: 0 0 10px 10px;
 }
 
+.card-rattings {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    padding: 5px;
+    background-color: var(--white);
+    text-transform: uppercase;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.card-rattings span{
+    display: flex;
+}
+
+.card-rattings .rattings-count{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 100%;
+}
+
+.card-rattings .rattings-number{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 100%;
+        color: var(--muted);
+}
+
+.card-rattings .icon svg {
+    color: var(--brand-color);
+    width: 12px;
+    height: 12px;
+}
+
 .card-badge {
     color: var(--white);
     font-family: var(--paragraph-font);
